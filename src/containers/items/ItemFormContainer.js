@@ -13,7 +13,7 @@ class ItemFormContainer extends Component {
       link: "",
       additionalDetail: "",
       starItem: false,
-      persom:
+      persom: []
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
