@@ -7,4 +7,5 @@ const ItemDetail = (props) => {
     return <p>Item detail coming soon...</p>
   }
 
+
 }
