@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Roter, Route, Switch} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import ItemController from './items/ItemController';
 
 const MainContainer = () => {
