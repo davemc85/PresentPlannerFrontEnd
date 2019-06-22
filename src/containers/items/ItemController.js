@@ -13,6 +13,7 @@ class ItemController extends Component {
     this.findItemById = this.findItemById.bind(this);
   }
 
+<<<<<<< HEAD
   // componentDidMount(){
   //   const request = new Request();
   //
@@ -21,6 +22,15 @@ class ItemController extends Component {
   //     this.setState({items: data:_embedded.items})
   //   })
   // }
+=======
+  componentDidMount(){
+    const request = new Request();
+    request.get('/api/items')
+    .then((data) => {
+      this.setState({items: data:_embedded.items})
+    })
+  }
+>>>>>>> develop
 
   findItemById(id){
     return this.state.items.find((item) => {
