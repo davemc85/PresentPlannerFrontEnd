@@ -1,7 +1,7 @@
 import React from 'react';
 import Person from './person';
 
-const PersonList = (props)=> {
+const PersonList = (props) => {
   if(!props.person.length === 0){
     return(
       <p>Loading person list....<p/>
@@ -20,7 +20,7 @@ const PersonList = (props)=> {
     return(
     <ul className="component-list">
       {allPersons}
-      </ul>
+    </ul>
 
     )
 }

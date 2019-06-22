@@ -7,19 +7,20 @@ const PersonDeatil = (props)=> {
     return <p>Loading PersonDeatil Information....</p>
   }
 
-  const dates = props.person.dates.map((date, index) => {
+  const allDates = props.person.dates.map((date, index) => {
     return <li key={index}>{date.name}</li>
   })
   return (
-  <div className = "component">
-    <Person person = {props.person}/>
-    <p>Mobile No : {props.mobileNo}</p>
-    <p>Home Address : {props.address}</p>
-      <p>EventDates :</p>
+  <div className="component">
+    <Person person={props.person}/>
+     <p>Mobile No : {props.mobileNo}</p>
+     <p>Home Address : {props.address}</p>
+     <p>EventDates :</p>
         <ul>
-          {dates}
+          {allDates}
         </ul>
    </div>
-)
-
+ )
 }
+
+export default PersonDeatil;

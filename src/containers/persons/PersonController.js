@@ -1,11 +1,11 @@
 import React from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import PersonList from '../../components/persons/PersonList';
-import PersonDetail from '../../components/persons/PersonDetail';
-import Person from '../../components/persons/Person';
+import PersonList from '../../components/person/PersonList';
+import PersonDetail from '../../components/person/PersonDetail';
+import Person from '../../components/person/Person';
 
 
-class PersonController extends Components {
+class PersonController extends Component {
   constructor (props) {
     super(props);
     this.state = {
@@ -18,7 +18,7 @@ class PersonController extends Components {
     const request = new Request();
     request.get('/api/persons')
     .then((data) => {
-      this.setState({persons:persons})
+      this.setState({persons: data:_embedded.persons})
       })
     }
     findPersonById(id){

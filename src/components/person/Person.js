@@ -7,14 +7,14 @@ const Person = ({person}) => {
     return <p>Waiting for person....</p>
   }
 
-  const url = "/person" + person.id;
+  const url = "/persons/" + person.id;
 
    return (
         <React.Fragment>
          <Link to {url} className="person_name">
-          Name: {props.person.name}
+          Name: {person.name}
          </Link>
-          <p>Relation: {props.person.relation}</p>
+          <p>Relation: {person.relation}</p>
         </React.Fragment>
       )
     }
