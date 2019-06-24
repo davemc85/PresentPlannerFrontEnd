@@ -81,7 +81,7 @@ class ItemFormContainer extends Component {
   }
 
   render(){
-    if(!this.state.persons.;ength === 0){
+    if(this.state.persons.length === 0){
       return <p>Loading...<p>
     }
 
