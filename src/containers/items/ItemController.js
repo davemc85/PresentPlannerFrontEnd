@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import ItemList from '../../components/item/ItemList.js';
 import ItemDetail from '../../components/item/ItemDetail.js';
@@ -15,9 +15,10 @@ class ItemController extends Component {
 
   componentDidMount(){
     const request = new Request();
+
     request.get('/api/items')
     .then((data) => {
-      this.setState({items: data:_embedded.items})
+      this.setState({items: data._embedded.persons.items})
     })
   }
 

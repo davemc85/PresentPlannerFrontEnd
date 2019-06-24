@@ -11,7 +11,7 @@ const Item = ({item}) => {
 
   return (
     <React.Fragment>
-      <Link to {url} className="item_name">
+      <Link to={url} className="item_name">
         {item.name}
       </Link>
       <p>{item.description}</p>
