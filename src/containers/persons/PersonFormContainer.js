@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Request from '../../helpers/Request';
 
 class PersonFormContainer extends Component {
@@ -42,19 +42,19 @@ class PersonFormContainer extends Component {
     const eventDateOptions = this.state.dates.map((date, index)=>{
       return <option key={index} value={date.eventdate}>{date.name}</option>
     })
-    // const giftItemOptions = this.state.items.map((item, index)=>{
-    //   return <option key={index} value={item.name}>{item.description}</option>
-    // })
+    const giftItemOptions = this.state.items.map((item, index)=>{
+      return <option key={index} value={item.name}>{item.description}</option>
+    })
     return(
       <div>
       <form onSubmit={this.handleSubmit}>
-      <input="text" placeholder="Name" name="name" onChange={this.handleName} value={this.state.name} />
+      <input type="text" placeholder="Name" name="name" onChange={this.handleName} value={this.state.name} />
       <select name="dates">
       {eventDateOptions}
       </select>
       <button type="submit">Save</button>
       <select name="items">
-      {gitItemOptions}
+      {giftItemOptions}
       </select>
       <button type="submit">Save</button>
       </form>
