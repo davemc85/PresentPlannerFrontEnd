@@ -1,12 +1,14 @@
 import React from 'react';
-import {BrowserRouter as Roter, Route, Switch} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import ItemController from './items/ItemController';
 import PersonController from './persons/PersonController';
+import NavBar from '../NavBar.js';
 
 const MainContainer = () => {
   return (
     <Router>
       <React.Fragment>
+        <NavBar/>
         <Switch>
           <Route path="/items" component={ItemController}/>
           <Route path="/persons" component={PersonController}/>
