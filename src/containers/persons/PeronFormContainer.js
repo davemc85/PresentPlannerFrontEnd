@@ -42,9 +42,9 @@ class PersonFormContainer extends Component {
     const eventDateOptions = this.state.dates.map((date, index)=>{
       return <option key={index} value={date.eventdate}>{date.name}</option>
     })
-    // const giftItemOptions = this.state.items.map((item, index)=>{
-    //   return <option key={index} value={item.name}>{item.description}</option>
-    // })
+    const giftItemOptions = this.state.items.map((item, index)=>{
+      return <option key={index} value={item.name}>{item.description}</option>
+    })
     return(
       <div>
       <form onSubmit={this.handleSubmit}>

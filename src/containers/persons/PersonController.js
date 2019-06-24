@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import PersonList from '../../components/person/PersonList';
 import PersonDetail from '../../components/person/PersonDetail';
 import Person from '../../components/person/Person';
-import Person from '../../helpers/request';
+import PersonFormContainer from '../../components/person/Person';
 
 
 class PersonController extends Component {
@@ -55,11 +55,12 @@ class PersonController extends Component {
               const id = props.match.params.id;
               const person = this.findPersonById(id);
               return <PersonDetail person={person} />
-           </Switch>
+            }} />
+            </Switch>
           </React.Fragment>
         </Router>
       )
     }
   }
-}
+
   export default PersonController;
