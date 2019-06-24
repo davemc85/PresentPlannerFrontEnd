@@ -13,8 +13,7 @@ const PersonDeatil = (props)=> {
   return (
   <div className="component">
     <Person person={props.person}/>
-     <p>Mobile No : {props.mobileNo}</p>
-     <p>Home Address : {props.address}</p>
+
      <p>EventDates :</p>
         <ul>
           {allDates}
