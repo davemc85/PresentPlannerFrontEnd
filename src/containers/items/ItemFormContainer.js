@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Request from '../../helpers/request';
+import Request from '../../helpers/Request';
 
 class ItemFormContainer extends Component {
 
@@ -61,10 +61,6 @@ class ItemFormContainer extends Component {
     this.setState({starItem: event.target.value})
   }
 
-  handlePerson(event){
-    this.setState({person: event.target.value})
-  }
-
   handleSubmit(event){
     event.preventDefault();
     const newItem = {
@@ -77,12 +73,12 @@ class ItemFormContainer extends Component {
       starItem: this.state.starItem,
       person: event.target.person.value
     }
-    this.props.handleItemPost(newItem)
+    this.props.handleItemPost(newItem);
   }
 
   render(){
-    if(!this.state.persons.;ength === 0){
-      return <p>Loading...<p>
+    if(this.props === 0){
+      return <p>Loading...</p>
     }
 
     const personOptions = this.state.persons.map((person, index) => {
@@ -92,14 +88,22 @@ class ItemFormContainer extends Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
+        <label>Name </label>
           <input type="text" placeholder="name" name="name" onChange={this.handleName} value={this.state.name}/>
+          <label>Description </label>
           <input type="text" placeholder="description" name="description" onChange={this.handleDescription} value={this.state.description}/>
+          <label>Location </label>
           <input type="text" placeholder="location" name="location" onChange={this.handleLocation} value={this.state.location}/>
+          <label>Price £</label>
           <input type="number" placeholder="price" name="price" onChange={this.handlePrice} value={this.state.price}/>
+          <label>Website Link </label>
           <input type="text" placeholder="link" name="link" onChange={this.handleLink} value={this.state.link}/>
-          <input type="text" placeholder="additional_detail" name="additionalDetail" onChange={this.handleAdditionalDetail} value={this.state.additionalDetail}/>
-          <input type="checkbox" name="starItem" value="true" onChange={this.handleStarItem} value={this.state.starItem}/>Star Item<br>
-          <select name="person" onChange={this.handlePerson}>
+          <label>Additional Details </label>
+          <input type="textarea" placeholder="additional detail" name="additionalDetail" onChange={this.handleAdditionalDetail} value={this.state.additionalDetail}/>
+          <label>Star Item </label>
+          <input type="checkbox" name="starItem" value="true" onChange={this.handleStarItem} value={this.state.starItem}/>
+          <label>Who is it for? </label>
+          <select name="person">
             {personOptions}
           </select>
           <button type="submit">Add item</button>

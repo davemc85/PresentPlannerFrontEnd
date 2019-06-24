@@ -3,7 +3,7 @@ import Item from './Item.js';
 
 const ItemList = (props) => {
 
-  if(!props.item.length === 0){
+  if(props.items.length === 0){
     return (
       <p>Loading list....</p>
     )

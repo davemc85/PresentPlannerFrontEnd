@@ -16,6 +16,7 @@ const NavBar = (props) => {
             <li className="navLink">
               <a href="/items">StockItems</a>
               </li>
+              </ul>
       </header>
   )
 }
