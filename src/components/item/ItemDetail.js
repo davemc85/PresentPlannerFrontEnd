@@ -7,7 +7,6 @@ const ItemDetail = (props) => {
     return <p>Item detail coming soon...</p>
   }
 
-<<<<<<< HEAD
   const handleDeleteClick = () => {
     props.onDelete(props.item.id);
   }
@@ -21,8 +20,6 @@ return (
     <Item item={props.item}/>
   </div>
 )
-=======
->>>>>>> develop
 
 }
 export default ItemDetail

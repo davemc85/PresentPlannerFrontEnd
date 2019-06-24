@@ -13,7 +13,7 @@ class ItemFormContainer extends Component {
       link: "",
       additionalDetail: "",
       starItem: false,
-      persom: []
+      person: []
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -24,6 +24,13 @@ class ItemFormContainer extends Component {
     this.handleLink = this.handleLink.bind(this);
     this.handleAdditionalDetail = this.handleAdditionalDetail.bind(this);
     this.handleStarItem = this.handleStarItem.bind(this);
+  }
+
+  componentDidMount(){
+    const request = new Request();
+    request.get('/api/persons').then((data) => {
+      this.setState({persons: data._embedded.persons})
+    })
   }
 
   handleName(event){
@@ -54,6 +61,10 @@ class ItemFormContainer extends Component {
     this.setState({starItem: event.target.value})
   }
 
+  handlePerson(event){
+    this.setState({person: event.target.value})
+  }
+
   handleSubmit(event){
     event.preventDefault();
     const newItem = {
@@ -63,7 +74,8 @@ class ItemFormContainer extends Component {
       price: this.state.price,
       link: this.state.link,
       additionalDetail: this.state.additionalDetail,
-      starItem: this.state.starItem
+      starItem: this.state.starItem,
+      person: event.target.person.value
     }
     this.props.handleItemPost(newItem)
   }
@@ -86,9 +98,8 @@ class ItemFormContainer extends Component {
           <input type="number" placeholder="price" name="price" onChange={this.handlePrice} value={this.state.price}/>
           <input type="text" placeholder="link" name="link" onChange={this.handleLink} value={this.state.link}/>
           <input type="text" placeholder="additional_detail" name="additionalDetail" onChange={this.handleAdditionalDetail} value={this.state.additionalDetail}/>
-          <input type="radio" name="starItem" value="yes" onChange={this.handleStarItem} value={this.state.starItem}/>yes<br>
-          <input type="radio" name="starItem" value="no" onChange={this.handleStarItem} value={this.state.starItem}/>no<br>
-          <select name="person">
+          <input type="checkbox" name="starItem" value="true" onChange={this.handleStarItem} value={this.state.starItem}/>Star Item<br>
+          <select name="person" onChange={this.handlePerson}>
             {personOptions}
           </select>
           <button type="submit">Add item</button>

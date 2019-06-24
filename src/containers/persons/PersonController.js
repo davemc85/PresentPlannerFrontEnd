@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import PersonList from '../../components/person/PersonList';
 import PersonDetail from '../../components/person/PersonDetail';
@@ -18,7 +18,7 @@ class PersonController extends Component {
     const request = new Request();
     request.get('/api/persons')
     .then((data) => {
-      this.setState({persons: data:_embedded.persons})
+      this.setState({persons: data._embedded.persons})
       })
     }
     findPersonById(id){
@@ -40,7 +40,7 @@ class PersonController extends Component {
               return <PersonDetail person={person} />
             }} />
            </Switch>
-          <React.Fragment>
+          </React.Fragment>
         </Router>
       )
     }

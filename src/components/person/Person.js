@@ -9,9 +9,9 @@ const Person = ({person}) => {
 
   const url = "/persons/" + person.id;
 
-   return (
+    return (
         <React.Fragment>
-         <Link to {url} className="person_name">
+         <Link to={url} className="person_name">
           Name: {person.name}
          </Link>
           <p>Relation: {person.relation}</p>
