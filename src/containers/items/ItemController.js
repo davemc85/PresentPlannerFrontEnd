@@ -54,7 +54,7 @@ class ItemController extends Component {
 
   handleItemUpdate(item, id){
     const request = new Request();
-    request.patch('api/items/' + id, item).then(()=> {
+    request.patch('/api/items/' + id, item).then(()=> {
       window.location = '/items/' + id;
     })
   }
@@ -79,7 +79,7 @@ class ItemController extends Component {
             <Route exact path="/items/:id" render={(props) => {
               const id = props.match.params.id;
               const item = this.findItemById(id);
-              return <ItemDetail item={item} />
+              return <ItemDetail item={item} onDelete={this.handleDelete}/>
             }} />
           </Switch>
         </React.Fragment>
