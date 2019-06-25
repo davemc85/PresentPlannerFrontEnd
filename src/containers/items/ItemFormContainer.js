@@ -13,7 +13,7 @@ class ItemFormContainer extends Component {
       link: "",
       additionalDetail: "",
       starItem: false,
-      person: []
+      persons: []
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -99,9 +99,9 @@ class ItemFormContainer extends Component {
           <label>Website Link </label>
           <input type="text" placeholder="link" name="link" onChange={this.handleLink} value={this.state.link}/>
           <label>Additional Details </label>
-          <input type="textarea" placeholder="additional detail" name="additionalDetail" onChange={this.handleAdditionalDetail} value={this.state.additionalDetail}/>
+          <textarea value={this.state.additionalDetail} name="additionalDetail" onChange={this.handleAdditionalDetail} />
           <label>Star Item </label>
-          <input type="checkbox" name="starItem" value="true" onChange={this.handleStarItem} value={this.state.starItem}/>
+          <input type="checkbox" name="starItem" onChange={this.handleStarItem} checked={this.state.starItem}/>
           <label>Who is it for? </label>
           <select name="person">
             {personOptions}
