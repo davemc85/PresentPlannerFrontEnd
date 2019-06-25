@@ -40,6 +40,14 @@ class PersonController extends Component {
       window.location = "/persons";
     })
   }
+  handleItemUpdate(person, id){
+    const request = new Request();
+    request.patch('/api/persons/' + id, person).then(()=> {
+      window.location = '/persons/' + id;
+    })
+  }
+
+
 
 
   render(){
@@ -54,12 +62,19 @@ class PersonController extends Component {
               return <PersonFormContainer handlePersonPost = {this.handlePost}/>
                 }}/>
 
-            <Route exact path="/persons/:id"
+            <Route exact path="/persons/edit/:id"
               render={(props) => {
               const id = props.match.params.id;
               const person = this.findPersonById(id);
-              return <PersonDetail person={person} />
+              return <PersonEditFormContainer person={person}
+              handlePersonUpdate={this.handlePersonUpdate}/>
             }} />
+
+            <Route exact path="/persons/:id" render={(props)=>{
+              const id = props.match.params.id;
+              const person = this.findPersonById(id);
+              return <PersonDetail person={person} />
+            }}/>
            </Switch>
           </React.Fragment>
         </Router>
