@@ -15,7 +15,7 @@ class PersonController extends Component {
     }
 
     this.findPersonById = this.findPersonById.bind(this);
-
+    this.handleDelete = this.handleDelete.bind(this);
     this.handlePost = this.handlePost.bind(this);
   }
 
@@ -31,6 +31,14 @@ class PersonController extends Component {
       return this.state.persons.find((person) => {
         return person.id === parseInt(id);
       })
+    }
+    handleDelete(id){
+      const request = new Request();
+      const url = "/api/persons/" + id;
+      request.delete(url)
+      .then(()=> {
+        window.location = "/persons";
+      });
     }
 
      handlePost(person){
