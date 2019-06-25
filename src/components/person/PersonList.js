@@ -1,5 +1,6 @@
 import React from 'react';
 import Person from './Person';
+import CalendarBanner from '../event/CalendarBanner';
 
 const PersonList = (props) => {
   if(props.persons.length === 0){
@@ -7,22 +8,24 @@ const PersonList = (props) => {
       <p>Loading person list....</p>
     )
   }
-
-
+  
+  
   const allPersons = props.persons.map((person) => {
     return (
-    <li key={person.id} className="component-person">
+      <li key={person.id} className="component-person">
       <div className="component">
-       <Person person={person} />
+      <Person person={person} />
       </div>
-    </li>
+      </li>
     )
   })
   return(
+    <div>
+    <CalendarBanner events={props.events} />
     <ul className="component-list">
     {allPersons}
     </ul>
-
+    </div>
   )
 }
 export default PersonList;
