@@ -3,7 +3,7 @@ import Event from './Event.js';
 
 const EventList = (props) => {
 
-  if(props.items.length === 0){
+  if(!props.items){
     return (
       <p>Loading event list...</p>
     )
