@@ -39,6 +39,11 @@ h1 {
   font-size: 20px;
 }
 
+b {
+  font-family: 'Indie Flower', cursive;
+  font-size: 30px;
+}
+
 .banner .calendar-button {
   align-items: flex-end;
   justify-content: flex-end;
@@ -61,6 +66,7 @@ h1 {
   padding-bottom: 20px;
   padding-left: 50px;
   padding-right: 50px;
+  transform: rotate(30);
 }
 
 .person-detail {
