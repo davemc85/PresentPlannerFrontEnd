@@ -70,7 +70,7 @@ class ItemEditFormContainer extends Component {
             <select name="person">
               {personOptions}
             </select>
-            <button type="submit">Edit item</button>
+            <button type="submit">Save changes</button>
           </form>
         </div>
       )
