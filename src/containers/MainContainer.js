@@ -7,16 +7,15 @@ import CalendarBanner from '../components/event/CalendarBanner';
 
 const MainContainer = () => {
   return (
-    <CalendarBanner />
-    // <Router>
-    //   <React.Fragment>
-    //     <NavBar/>
-    //     <Switch>
-    //       <Route path="/items" component={ItemController}/>
-    //       <Route path="/persons" component={PersonController}/>
-    //     </Switch>
-    //   </React.Fragment>
-    // </Router>
+    <Router>
+      <React.Fragment>
+        <NavBar/>
+        <Switch>
+          <Route path="/items" component={ItemController}/>
+          <Route path="/persons" component={PersonController}/>
+        </Switch>
+      </React.Fragment>
+    </Router>
   )
 }
 

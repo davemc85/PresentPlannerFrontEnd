@@ -11,19 +11,26 @@ class PersonController extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      persons: []
+      persons: [],
+      events: []
     }
-
+    
     this.findPersonById = this.findPersonById.bind(this);
     this.handlePost = this.handlePost.bind(this);
   }
-
-
+  
+  
   componentDidMount(){
     const request = new Request();
-    request.get('/api/persons')
+    const personPromise = request.get('/api/persons');
+    const eventPromise = request.get('/api/events/ordered-events');
+    Promise.all([personPromise, eventPromise])
     .then((data) => {
-      this.setState({persons: data._embedded.persons})
+      this.setState({persons: data[0]._embedded.persons});
+      this.state.events.push(data[1]);
+      // for (const event in this.state.fetchedEvents){
+      //   this.state.events.push(event);
+      // };
       })
     }
     findPersonById(id){
@@ -31,37 +38,37 @@ class PersonController extends Component {
         return person.id === parseInt(id);
       })
     }
-     handlePost(person){
-    const request = new Request();
-    request.post("/api/persons/", person)
-    .then(()=>{
-      window.location ="/persons";
-    })
-  }
-
-  render(){
-    return(
-      <Router>
-        <React.Fragment>
-         <Switch>
-          <Route exact path="/persons" render={() =>
-            <PersonList persons={this.state.persons}/> }/>
-
-            <Route exact path="/persons/new" render={() =>{
-              return <PersonFormContainer handlePersonPost = {this.handlePost}/>
-                }}/>
-
-            <Route exact path="/persons/:id"
-              render={(props) => {
-              const id = props.match.params.id;
-              const person = this.findPersonById(id);
-              return <PersonDetail person={person} />
-            }}/>
-           </Switch>
-          </React.Fragment>
-        </Router>
-      )
+    handlePost(person){
+      const request = new Request();
+      request.post("/api/persons/", person)
+      .then(()=>{
+        window.location ="/persons";
+      })
     }
-
-}
-  export default PersonController;
+    
+    render(){
+      return(
+        <Router>
+        <React.Fragment>
+        <Switch>
+        <Route exact path="/persons" render={() =>
+          <PersonList persons={this.state.persons} events={this.state.events}/> }/>
+          
+          <Route exact path="/persons/new" render={() =>{
+            return <PersonFormContainer handlePersonPost = {this.handlePost}/>
+          }}/>
+          
+          <Route exact path="/persons/:id"
+          render={(props) => {
+            const id = props.match.params.id;
+            const person = this.findPersonById(id);
+            return <PersonDetail person={person} />
+          }}/>
+          </Switch>
+          </React.Fragment>
+          </Router>
+        )
+      }
+      
+    }
+    export default PersonController;
