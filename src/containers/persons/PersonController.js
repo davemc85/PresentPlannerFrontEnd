@@ -27,11 +27,7 @@ class PersonController extends Component {
     const eventPromise = request.get('/api/events/ordered-events');
     Promise.all([personPromise, eventPromise])
     .then((data) => {
-      this.setState({persons: data[0]._embedded.persons});
-      this.state.events.push(data[1]);
-      // for (const event in this.state.fetchedEvents){
-      //   this.state.events.push(event);
-      // };
+      this.setState({persons: data[0]._embedded.persons, events: data[1]});
       })
     }
     findPersonById(id){
@@ -55,7 +51,7 @@ class PersonController extends Component {
         <React.Fragment>
          <Switch>
           <Route exact path="/persons" render={() =>
-            <PersonList persons ={this.state.persons} /> }/>
+            <PersonList persons ={this.state.persons} events={this.state.events}/> }/>
 
             <Route exact path= "/persons/new" render={() =>{
               return <PersonFormContainer handlePersonPost = {this.handlePost}/>

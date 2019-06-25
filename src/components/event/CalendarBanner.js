@@ -17,11 +17,10 @@ const CalendarBanner = (props) => {
     return days;
   }
   
-  // It is {props.events[0].person.name}'s {props.events[0].eventName} in {getFirstEventsTimeFrame} days
   
   return(
     <div>
-    <p>callendarbanner {props.events.person}</p>
+    <p>It is {props.events[0].person.name}'s {props.events[0].eventName} in {props.events[0].days} days</p>
     </div>
   )
   
