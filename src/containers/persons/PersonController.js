@@ -15,13 +15,13 @@ class PersonController extends Component {
       persons: [],
       events: []
     }
-    
+
     this.findPersonById = this.findPersonById.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handlePost = this.handlePost.bind(this);
   }
-  
-  
+
+
   componentDidMount(){
     const request = new Request();
     const personPromise = request.get('/api/persons');
@@ -52,7 +52,7 @@ class PersonController extends Component {
       window.location = "/persons";
     })
   }
-  handleItemUpdate(person, id){
+  handlePersonUpdate(person, id){
     const request = new Request();
     request.patch('/api/persons/' + id, person).then(()=> {
       window.location = '/persons/' + id;
@@ -94,6 +94,6 @@ class PersonController extends Component {
           </Router>
         )
       }
-      
+
     }
     export default PersonController;
