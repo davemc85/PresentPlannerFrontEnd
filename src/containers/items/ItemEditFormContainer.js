@@ -60,13 +60,13 @@ class ItemEditFormContainer extends Component {
           <label>Location: </label>
             <input type="text" name="location" defaultValue={this.props.item.location}/>
           <label>Price: £ </label>
-            <input type="number" name="number" defaultValue={this.props.item.number}/>
+            <input type="number" name="price" defaultValue={this.props.item.price}/>
           <label>Website Link: </label>
             <input type="text" name="link" defaultValue={this.props.item.link}/>
           <label>Additional Details: </label>
-            <input type="textarea" rows="10" cols="40" name="additionalDetail" defaultValue={this.props.item.additionalDetail}/>
+            <textarea name="additionalDetail" defaultValue={this.props.item.additionalDetail} />
           <label>Star Item </label>
-            <input type="checkbox" name="starItem" value="true" checked={this.props.item.starItem === true}/>
+            <input type="checkbox" name="starItem" />
           <label>Who is it for? </label>
             <select name="person">
               {personOptions}
