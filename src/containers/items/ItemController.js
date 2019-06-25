@@ -20,7 +20,7 @@ class ItemController extends Component {
     request.get('/api/items')
     .then((data) => {
       console.log(data);
-      this.setState({items: data._embedded.persons.items})
+      this.setState({items: data._embedded.items})
     })
   }
 

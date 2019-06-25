@@ -2,7 +2,7 @@ import React from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import ItemController from './items/ItemController';
 import PersonController from './persons/PersonController';
-import NavBar from '../components/NavBar.js';
+import NavBar from '../NavBar.js';
 
 const MainContainer = () => {
   return (
