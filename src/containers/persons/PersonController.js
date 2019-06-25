@@ -5,6 +5,10 @@ import PersonDetail from '../../components/person/PersonDetail';
 import Request from '../../helpers/Request';
 import PersonFormContainer from './PersonFormContainer';
 import PersonEditFormContainer from './PersonEditFormContainer';
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2d42776ffaae1e9d839937b6b0e9b07ded8a5c31
 
 
 class PersonController extends Component {
@@ -14,13 +18,13 @@ class PersonController extends Component {
       persons: [],
       events: []
     }
-    
+
     this.findPersonById = this.findPersonById.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handlePost = this.handlePost.bind(this);
   }
-  
-  
+
+
   componentDidMount(){
     const request = new Request();
     const personPromise = request.get('/api/persons');
@@ -51,7 +55,7 @@ class PersonController extends Component {
       window.location = "/persons";
     })
   }
-  handleItemUpdate(person, id){
+  handlePersonUpdate(person, id){
     const request = new Request();
     request.patch('/api/persons/' + id, person).then(()=> {
       window.location = '/persons/' + id;
@@ -75,7 +79,7 @@ class PersonController extends Component {
 
             <Route exact path="/persons/edit/:id"
               render={(props) => {
-              const id = props.match.params.id;
+              const id = props.match.params.id
               const person = this.findPersonById(id);
               return <PersonEditFormContainer person={person}
               handlePersonUpdate={this.handlePersonUpdate}/>
@@ -84,13 +88,19 @@ class PersonController extends Component {
             <Route exact path="/persons/:id" render={(props)=>{
               const id = props.match.params.id;
               const person = this.findPersonById(id);
+<<<<<<< HEAD
               return <PersonDetail person={person} onDelete={this.handleDelete} />
+=======
+              return <PersonDetail person={person}
+              onDelete={this.handleDelete}/>
+
+>>>>>>> 2d42776ffaae1e9d839937b6b0e9b07ded8a5c31
             }}/>
            </Switch>
           </React.Fragment>
           </Router>
         )
       }
-      
+
     }
     export default PersonController;
