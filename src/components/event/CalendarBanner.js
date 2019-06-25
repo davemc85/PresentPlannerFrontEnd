@@ -1,8 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Event from './Event';
 
 
 const CalendarBanner = (props) => {
+  
+  const [opened, setOpened] = useState(false)
+  
   
   if (!props.events){
     return(
@@ -10,13 +13,11 @@ const CalendarBanner = (props) => {
     )
   }
   
-  let opened = false;
-  
   const changeOpened = () => {
     if (opened){
-      opened = false;
+      setOpened(false);
     } else {
-      opened = true;
+      setOpened(true);
     }
   }
   
@@ -36,7 +37,7 @@ const CalendarBanner = (props) => {
       <Event event={props.events[0]} />
       </li>
       </ul>
-      <button onClick={opened=true}>Expand</button>
+      <button onClick={() => {changeOpened()}}>Expand</button>
       </div>
     )
   }
@@ -47,7 +48,7 @@ const CalendarBanner = (props) => {
       <ul>
       {eventsList}
       </ul>
-      <button onClick={opened=false}>Collapse</button>
+      <button onClick={() => {changeOpened()}}>Collapse</button>
       </div>
     )
   }
