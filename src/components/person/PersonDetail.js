@@ -4,32 +4,29 @@ import Person from './Person';
 
 
 
-const PersonDeatil = (props) => {
+const PersonDetail = (props) => {
   if(!props.person){
-    return <p>Loading PersonDeatil Information....</p>
+    return <p>Loading PersonDetail Information....</p>
   }
 
-  const allDates = props.person.dates.map((date, index) => {
-    return <li key={index}>{date.eventName} { date.eventDate}</li>
-  })
+  // const allDates = props.person.dates.map((date, index) => {
+  //   return <li key={index}>{date.eventName} { date.eventDate}</li>
+  // })
   const allItems = props.person.items.map((item, index) => {
     return <li key={index}>{item.name}{item.price}</li>
   })
   return (
-  <div>
+   <div className="person-component">
     <Person person ={props.person}/>
-     <p>EventDates :</p>
-        <ul>
-        <li>
-          {allDates}
-          </li>
+         <ul>
           <p>Gift Ideas:</p>
           <li>
           {allItems}
           </li>
         </ul>
-   </div>
+        </div>
+
  )
 }
 
-export default PersonDeatil;
+export default PersonDetail;

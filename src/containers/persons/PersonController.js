@@ -4,7 +4,7 @@ import PersonList from '../../components/person/PersonList';
 import PersonDetail from '../../components/person/PersonDetail';
 import Request from '../../helpers/Request';
 import PersonFormContainer from './PersonFormContainer';
-import Person from '../../components/person/Person';
+import PersonEditFormContainer from './PersonEditFormContainer';
 
 
 class PersonController extends Component {
@@ -38,6 +38,12 @@ class PersonController extends Component {
       window.location = "/persons";
     });
   }
+  handlePersonUpdate(person, id){
+    const request = new Request();
+    request.patch('/api/persons/' + id, person).then(()=>{
+      window.location = '/persons/' + id;
+    })
+  }
 
   render(){
     return(
@@ -47,10 +53,16 @@ class PersonController extends Component {
           <Route exact path="/persons" render={() =>
             <PersonList persons ={this.state.persons} /> }/>
 
-            <Route exact path= "/persons/new" render={() =>{
+            <Route exact path= '/persons/new' render={() =>{
               return <PersonFormContainer handlePersonPost = {this.handlePost}/>
                 }}/>
 
+            <Route exact path='/persons/edit/:id' render={(props)=> {
+              const id = props.match.params.id
+              const person = this.findPersonById(id);
+              return <PersonEditFormContainer person={person}
+              handlePersonUpdate={this.handlePersonUpdate}/>
+            }}/>
             <Route exact path="/persons/:id"
               render={(props) => {
               const id = props.match.params.id;
@@ -62,6 +74,7 @@ class PersonController extends Component {
         </Router>
       )
     }
+  }
 
-}
+
   export default PersonController;
