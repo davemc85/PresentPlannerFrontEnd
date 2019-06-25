@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 
 const Person = ({person}) => {
 
-  if(!person){
+  if(!person) {
     return <p>Waiting for person....</p>
   }
 
@@ -11,10 +11,10 @@ const Person = ({person}) => {
 
     return (
         <React.Fragment>
-         <Link to={url} className="person_name">
-          Name: {person.name}
-         </Link>
-          
+          Name:
+          <Link to={url} className="name">
+           {person.name}
+          </Link>
         </React.Fragment>
       )
     }
