@@ -17,6 +17,7 @@ class ItemController extends Component {
     this.findItemById = this.findItemById.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handlePost = this.handlePost.bind(this);
+    this.handleItemUpdate = this.handleItemUpdate.bind(this);
   }
 
   componentDidMount(){

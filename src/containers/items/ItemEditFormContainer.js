@@ -13,7 +13,7 @@ class ItemEditFormContainer extends Component {
 
   componentDidMount(){
     const request = new Request();
-      const personPromise = request.get('/api/persons')
+      request.get('/api/persons')
       .then((data) => {
       this.setState({persons: data._embedded.persons})
     })
@@ -21,11 +21,7 @@ class ItemEditFormContainer extends Component {
 
   handleSubmit(event){
     event.preventDefault();
-    const persons = [...event.target.persons.options].filter((option) => {
-      return option.selected
-    }).map((option) => {
-      return option.value
-    });
+
 
     const item = {
       "name": event.target.name.value,
@@ -35,7 +31,7 @@ class ItemEditFormContainer extends Component {
       "link": event.target.link.value,
       "additionalDetail": event.target.additionalDetail.value,
       "starItem": event.target.starItem.value,
-      "persons": persons
+      "person": event.target.person.value
     }
     this.props.handleItemUpdate(item, this.props.item.id)
     }
