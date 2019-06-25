@@ -1,28 +1,56 @@
 import React from 'react';
+import Event from './Event';
 
 
 const CalendarBanner = (props) => {
-  console.log(props.events);
+  
   if (!props.events){
     return(
-      <p>Loading events...</p>
+      <p>Loading events....</p>
     )
   }
   
-  const getFirstEventsTimeFrame = () => {
-    const eventDate = props.events[0].eventDate;
-    const date = new Date();
-    
-    const days = Math.floor((Date.UTC(date.getMonth(), date.getDate()) - Date.UTC(eventDate.getMonth(), eventDate.getDate())) /(1000 * 60 * 60 * 24))
-    return days;
+  let opened = false;
+  
+  const changeOpened = () => {
+    if (opened){
+      opened = false;
+    } else {
+      opened = true;
+    }
   }
   
+  const eventsList = props.events.slice(0, 6).map((event) => {
+    return (
+      <li key={event.id}>
+      <Event event={event} />
+      </li>
+    )
+  })
   
-  return(
-    <div>
-    <p>It is {props.events[0].person.name}'s {props.events[0].eventName} in {props.events[0].days} days</p>
-    </div>
-  )
+  if (!opened){
+    return(
+      <div>
+      <ul>
+      <li>
+      <Event event={props.events[0]} />
+      </li>
+      </ul>
+      <button onClick={changeOpened()}>Expand</button>
+      </div>
+    )
+  }
+  
+  if (opened){
+    return(
+      <div>
+      <ul>
+      {eventsList}
+      </ul>
+      <button onClick={changeOpened()}>Collapse</button>
+      </div>
+    )
+  }
   
 }
 
