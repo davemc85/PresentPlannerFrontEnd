@@ -4,7 +4,7 @@ import PersonList from '../../components/person/PersonList';
 import PersonDetail from '../../components/person/PersonDetail';
 import Request from '../../helpers/Request';
 import PersonFormContainer from './PersonFormContainer';
-import Person from '../../components/person/Person';
+ import Person from '../../components/person/Person';
 
 
 class PersonController extends Component {
@@ -15,6 +15,7 @@ class PersonController extends Component {
     }
 
     this.findPersonById = this.findPersonById.bind(this);
+
     this.handlePost = this.handlePost.bind(this);
   }
 
@@ -31,13 +32,15 @@ class PersonController extends Component {
         return person.id === parseInt(id);
       })
     }
+
      handlePost(person){
     const request = new Request();
     request.post("/api/persons/", person)
     .then(() => {
       window.location = "/persons";
-    });
+    })
   }
+
 
   render(){
     return(
