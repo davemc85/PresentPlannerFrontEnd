@@ -10,7 +10,7 @@ const Event = (props) => {
   }
   
   return (
-    <p>It is {props.event.person.name}'s {props.event.eventName} in {props.event.days} days</p>
+    <p>It is {props.event.person.name}'s {props.event.eventName} in <b>{props.event.days}</b> days</p>
   )
 }
 

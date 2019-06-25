@@ -37,7 +37,7 @@ const CalendarBanner = (props) => {
       <Event event={props.events[0]} />
       </li>
       </ul>
-      <button onClick={() => {changeOpened()}}>Expand</button>
+      <button onClick={() => {changeOpened()}} className="calendar-button">Expand</button>
       </div>
     )
   }
@@ -48,7 +48,7 @@ const CalendarBanner = (props) => {
       <ul>
       {eventsList}
       </ul>
-      <button onClick={() => {changeOpened()}}>Collapse</button>
+      <button onClick={() => {changeOpened()}} className="calendar-button">Collapse</button>
       </div>
     )
   }

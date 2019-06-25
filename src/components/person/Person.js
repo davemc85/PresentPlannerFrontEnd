@@ -12,7 +12,7 @@ const Person = ({person}) => {
     return (
         <React.Fragment>
           
-          <Link to={url} className="name">
+          <Link to={url}>
            {person.name}
           </Link>
         </React.Fragment>
