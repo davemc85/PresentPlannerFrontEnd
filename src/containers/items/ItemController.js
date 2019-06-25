@@ -6,6 +6,7 @@ import ItemDetail from '../../components/item/ItemDetail.js';
 import Request from '../../helpers/Request';
 import ItemFormContainer from './ItemFormContainer';
 import ItemEditFormContainer from './ItemEditFormContainer';
+import ItemSideNav from '../../components/item/ItemSideNav.js';
 
 
 class ItemController extends Component {
@@ -64,6 +65,7 @@ class ItemController extends Component {
     return(
       <Router>
         <React.Fragment>
+          <ItemSideNav />
           <Switch>
             <Route exact path="/items" render={() => <ItemList items={this.state.items}/> }/>
 
