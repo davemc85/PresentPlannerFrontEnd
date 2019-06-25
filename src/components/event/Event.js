@@ -14,7 +14,8 @@ const Event = ({event}) => {
       <Link to={url} className="event_name">
         {event.eventName}
       </Link>
-      <p>{event.eventDate}</p>
+        <p>{event.person.name}</p>
+        <p>{event.eventDate}</p>
     </React.Fragment>
   )
 
