@@ -12,20 +12,23 @@ class PersonController extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      persons: []
+      persons: [],
+      events: []
     }
-
+    
     this.findPersonById = this.findPersonById.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handlePost = this.handlePost.bind(this);
   }
-
-
+  
+  
   componentDidMount(){
     const request = new Request();
-    request.get('/api/persons')
+    const personPromise = request.get('/api/persons');
+    const eventPromise = request.get('/api/events/ordered-events');
+    Promise.all([personPromise, eventPromise])
     .then((data) => {
-      this.setState({persons: data._embedded.persons})
+      this.setState({persons: data[0]._embedded.persons, events: data[1]});
       })
     }
     findPersonById(id){
@@ -65,7 +68,7 @@ class PersonController extends Component {
         <React.Fragment>
          <Switch>
           <Route exact path="/persons" render={() =>
-            <PersonList persons ={this.state.persons} /> }/>
+            <PersonList persons ={this.state.persons} events={this.state.events}/> }/>
 
             <Route exact path= "/persons/new" render={() =>{
               return <PersonFormContainer handlePersonPost = {this.handlePost}/>
@@ -88,9 +91,9 @@ class PersonController extends Component {
             }}/>
            </Switch>
           </React.Fragment>
-        </Router>
-      )
+          </Router>
+        )
+      }
+      
     }
-
-}
-  export default PersonController;
+    export default PersonController;
