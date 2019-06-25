@@ -24,10 +24,7 @@ class ItemController extends Component {
 
     request.get('/api/items')
     .then((data) => {
-<<<<<<< HEAD
-      console.log(data);
-=======
->>>>>>> 2a6d8846adc5031a6b763a54b8f584fd81eefc4d
+
       this.setState({items: data._embedded.items})
     })
   }
