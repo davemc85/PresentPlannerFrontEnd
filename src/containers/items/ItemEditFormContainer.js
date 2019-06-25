@@ -5,7 +5,7 @@ class ItemEditFormContainer extends Component {
   constructor(props){
     super(props);
     this.state = {
-      persons: [],
+      persons: []
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -13,10 +13,9 @@ class ItemEditFormContainer extends Component {
 
   componentDidMount(){
     const request = new Request();
-      const personPromise = request.get('/api/persons');
-      Promise.all([personPromise])
+      const personPromise = request.get('/api/persons')
       .then((data) => {
-      this.setState({persons: data[0]._embedded.persons})
+      this.setState({persons: data._embedded.persons})
     })
   }
 
@@ -71,6 +70,7 @@ class ItemEditFormContainer extends Component {
             <select name="person">
               {personOptions}
             </select>
+            <button type="submit">Edit item</button>
           </form>
         </div>
       )
