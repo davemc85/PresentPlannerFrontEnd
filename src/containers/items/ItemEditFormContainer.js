@@ -22,7 +22,6 @@ class ItemEditFormContainer extends Component {
   handleSubmit(event){
     event.preventDefault();
 
-
     const item = {
       "name": event.target.name.value,
       "description": event.target.description.value,
@@ -30,7 +29,7 @@ class ItemEditFormContainer extends Component {
       "price": event.target.price.value,
       "link": event.target.link.value,
       "additionalDetail": event.target.additionalDetail.value,
-      "starItem": event.target.starItem.value,
+      "starItem": event.target.starItem.checked,
       "person": event.target.person.value
     }
     this.props.handleItemUpdate(item, this.props.item.id)

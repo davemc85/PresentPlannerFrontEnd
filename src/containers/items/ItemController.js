@@ -17,7 +17,6 @@ class ItemController extends Component {
     this.findItemById = this.findItemById.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handlePost = this.handlePost.bind(this);
-    this.handleItemUpdate = this.handleItemUpdate.bind(this);
   }
 
   componentDidMount(){
@@ -54,9 +53,10 @@ class ItemController extends Component {
   }
 
   handleItemUpdate(item, id){
+    console.log(item);
     const request = new Request();
-    request.patch('/api/items/' + id, item).then(()=> {
-      window.location = '/items/' + id;
+    request.patch("/api/items/" + id, item).then(()=> {
+      window.location = "/items/" + id;
     })
   }
 
@@ -71,7 +71,7 @@ class ItemController extends Component {
               return <ItemFormContainer handleItemPost = {this.handlePost}/>
             }}/>
 
-            <Route exact path='/items/edit/:id' render={(props)=> {
+            <Route exact path="/items/edit/:id" render={(props)=> {
               const id = props.match.params.id
               const item = this.findItemById(id);
               return <ItemEditFormContainer item={item} handleItemUpdate={this.handleItemUpdate}/>
