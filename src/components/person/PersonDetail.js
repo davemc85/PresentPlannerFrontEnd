@@ -56,10 +56,3 @@ const PersonDeatil = (props) => {
 }
 
 export default PersonDeatil;
-
-
-// <ul className="person-items">
-//   <li>
-//   {allItems}
-//   </li>
-// </ul>

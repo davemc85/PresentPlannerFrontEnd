@@ -82,6 +82,12 @@ h1 {
   text-align: center;
 }
 
+.list-heading {
+  font-family: 'Indie Flower', cursive;
+  font-size: 30px;
+  padding-left: 50px;
+}
+
 .person-items {
   display: flex;
   justify-content: center;
@@ -98,4 +104,13 @@ th {
   width: 12vw;
   min-width: 70px;
   text-align: left;
+}
+
+/* fix to align center */
+form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 50vw;
+  min-width: 200px;
 }
