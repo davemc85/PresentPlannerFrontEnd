@@ -12,9 +12,9 @@ const Item = ({item}) => {
   return (
     <React.Fragment>
       <Link to={url} className="item_name">
-        {item.name}
+        {item.name} {item.description}
       </Link>
-      <p>{item.description}</p>
+      <p>£{item.price}</p>
     </React.Fragment>
   )
 }

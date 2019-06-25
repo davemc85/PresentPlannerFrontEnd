@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Request from '../../helpers/request';
+import Request from '../../helpers/Request';
 
 class ItemEditFormContainer extends Component {
   constructor(props){
@@ -16,7 +16,7 @@ class ItemEditFormContainer extends Component {
       const personPromise = request.get('/api/persons');
       Promise.all([personPromise])
       .then((data) => {
-      .then.setState({persons: data[0]._embedded.persons})
+      this.setState({persons: data[0]._embedded.persons})
     })
   }
 
@@ -53,17 +53,25 @@ class ItemEditFormContainer extends Component {
       return(
         <div>
           <form onSubmit={this.handleSubmit}>
+          <label>Name: </label>
             <input type="text" name="name" defaultValue={this.props.item.name}/>
+          <label>Description: </label>
             <input type="text" name="description" defaultValue={this.props.item.description}/>
+          <label>Location: </label>
             <input type="text" name="location" defaultValue={this.props.item.location}/>
+          <label>Price: £ </label>
             <input type="number" name="number" defaultValue={this.props.item.number}/>
+          <label>Website Link: </label>
             <input type="text" name="link" defaultValue={this.props.item.link}/>
-            <input type="text" name="additionalDetail" defaultValue={this.props.item.additionalDetail}/>
+          <label>Additional Details: </label>
+            <input type="textarea" rows="10" cols="40" name="additionalDetail" defaultValue={this.props.item.additionalDetail}/>
+          <label>Star Item </label>
             <input type="checkbox" name="starItem" value="true" checked={this.props.item.starItem === true}/>
-// need to look at checkbox/radio button selection for star item
+          <label>Who is it for? </label>
             <select name="person">
               {personOptions}
             </select>
+          </form>
         </div>
       )
     }
