@@ -5,7 +5,7 @@ class PersonEditFormContainer extends Component {
   constructor(props){
     super(props);
     this.state = {
-      items: [],
+      items: []
     }
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -26,7 +26,7 @@ class PersonEditFormContainer extends Component {
       return option.value
     });
     const person = {
-      "name" : event.target.name.value,
+      "name": event.target.name.value,
       "items": items
     }
     this.props.handlePersonUpdate(person, this.props.person.id)
@@ -42,14 +42,14 @@ class PersonEditFormContainer extends Component {
   return (
     <div>
     <form onSubmit={this.hanldeSubmit}>Name:
-     <input type="text" name="name" defaultValue={this.props.person.name}/>
-
-     <select  multiple={true} name="items">
-     {itemOptions}
+      <input type="text" name="name" defaultValue={this.props.person.name}/>
+      <label>Gift Item Ideas:</label>
+      <select  multiple={true} name="items">
+      {itemOptions}
      </select>
      <button type="submit">Save</button>
      </form>
-     </div>
+    </div>
     )
   }
 }

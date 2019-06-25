@@ -16,7 +16,7 @@ const PersonDetail = (props) => {
   //   return <li key={index}>{date.eventName} { date.eventDate}</li>
   // })
   const allItems = props.person.items.map((item, index) => {
-    return <li key={index}>{item.name}{item.price}</li>
+    return <li key={index}>{item.name} Price:£{item.price}</li>
   })
 
   const editUrl = "/persons/edit/" + props.person.id;
