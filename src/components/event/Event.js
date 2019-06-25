@@ -1,17 +1,23 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
+const Event = ({event}) => {
 
-const Event = (props) => {
-  
-  if (!props.event){
-    return(
-      <p>Loading event...</p>
-    )
+  if(!event){
+    return <p>Events coming soon!.. </p>
   }
-  
+
+  const url = "/events/" + event.id;
+
   return (
-    <p>It is {props.event.person.name}'s {props.event.eventName} in {props.event.days} days</p>
+    <React.Fragment>
+      <Link to={url} className="event_name">
+        {event.eventName}
+      </Link>
+      <p>{event.eventDate}</p>
+    </React.Fragment>
   )
+
 }
 
 export default Event;
