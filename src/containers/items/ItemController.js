@@ -24,7 +24,6 @@ class ItemController extends Component {
 
     request.get('/api/items')
     .then((data) => {
-
       this.setState({items: data._embedded.items})
     })
   }
