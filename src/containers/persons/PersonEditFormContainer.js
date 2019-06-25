@@ -39,17 +39,17 @@ class PersonEditFormContainer extends Component {
       return <option key={index} value={item._links.self.href}>{item.name}</option>
     })
 
-  return (
-    <div>
-    <form onSubmit={this.hanldeSubmit}>Name:
-     <input type="text" name="name" defaultValue={this.props.person.name}/>
+    return (
+      <div>
+      <form onSubmit={this.hanldeSubmit}>Name:
+      <input type="text" name="name" defaultValue={this.props.person.name}/>
 
-     <select  multiple={true} name="items">
-     {itemOptions}
-     </select>
-     <button type="submit">Save</button>
-     </form>
-     </div>
+      <select  multiple={true} name="items">
+      {itemOptions}
+      </select>
+      <button type="submit">Save</button>
+      </form>
+      </div>
     )
   }
 }

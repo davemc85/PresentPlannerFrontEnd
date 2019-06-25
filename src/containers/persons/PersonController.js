@@ -6,9 +6,6 @@ import Request from '../../helpers/Request';
 import PersonFormContainer from './PersonFormContainer';
 import PersonEditFormContainer from './PersonEditFormContainer';
 
- 
-
-
 
 class PersonController extends Component {
   constructor(props) {
@@ -84,7 +81,7 @@ class PersonController extends Component {
             <Route exact path="/persons/:id" render={(props)=>{
               const id = props.match.params.id;
               const person = this.findPersonById(id);
-              return <PersonDetail person={person} />
+              return <PersonDetail person={person} onDelete={this.handleDelete} />
             }}/>
            </Switch>
           </React.Fragment>
