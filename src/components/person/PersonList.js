@@ -13,7 +13,7 @@ const PersonList = (props) => {
   const allPersons = props.persons.map((person) => {
     return (
       <li key={person.id} className="component-person">
-      <div className="component">
+      <div className="component-person-item">
       <Person person={person} />
       </div>
       </li>

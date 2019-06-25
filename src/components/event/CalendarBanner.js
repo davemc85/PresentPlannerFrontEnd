@@ -31,7 +31,7 @@ const CalendarBanner = (props) => {
   
   if (!opened){
     return(
-      <div>
+      <div className="banner">
       <ul>
       <li>
       <Event event={props.events[0]} />
@@ -44,7 +44,7 @@ const CalendarBanner = (props) => {
   
   if (opened){
     return(
-      <div>
+      <div className="banner">
       <ul>
       {eventsList}
       </ul>
