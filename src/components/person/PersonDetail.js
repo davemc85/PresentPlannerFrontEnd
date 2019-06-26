@@ -16,9 +16,9 @@ const PersonDetail = (props) => {
 
   const getStar = (star) => {
     if (star){
-      return <img src="../../public/Starred.png"/>
+      return <img src="../../../public/Starred.png"/>
     } else {
-      return <img src="../../public/noStar.png"/>
+      return <img src="../../../public/noStar.png"/>
     }
   }
 
