@@ -4,15 +4,14 @@ import Person from './Person';
 import Item from '../item/Item';
 import PersonSideNav from './PersonSideNav';
 import Event from '../event/Event';
+import EventDetail from '../event/EventDetail';
 
 
 const PersonDetail = (props) => {
   if(!props.person){
     return <p>Loading PersonDetail Information....</p>
   }
-  const handleDeleteClick = () => {
-    props.onDelete(props.event.id);
-  }
+
 
   const getStar = (star) => {
     if (star){
@@ -29,55 +28,55 @@ const PersonDetail = (props) => {
     switch(month){
       case 0:
       return <li key={index}>{date.eventName} on January {day}
-            <button onClick={handleDeleteClick}>Delete Event</button></li>
+            <a href={"/events/" + date.id}>View Event</a></li>
       break;
       case 1:
       return <li key={index}>{date.eventName} on February {day}
-          <button onClick={handleDeleteClick}>Delete Event</button></li>
+          <a href={"/events/" + date.id}>View Event</a></li>
       break;
       case 2:
       return <li key={index}>{date.eventName} on March {day}
-          <button onClick={handleDeleteClick}>Delete Event</button></li>
+          <a href={"/events/" + date.id}>View Event</a></li>
       break;
       case 3:
       return <li key={index}>{date.eventName} on April {day}
-          <button onClick={handleDeleteClick}>Delete Event</button></li>
+          <a href={"/events/" + date.id}>View Event</a></li>
       break;
       case 4:
       return <li key={index}>{date.eventName} on May {day}
-          <button onClick={handleDeleteClick}>Delete Event</button></li>
+          <a href={"/events/" + date.id}>View Event</a></li>
       break;
       case 5:
       return <li key={index}>{date.eventName} on June {day}
-          <button onClick={handleDeleteClick}>Delete Event</button></li>
+          <a href={"/events/" + date.id}>View Event</a></li>
       break;
       case 6:
       return <li key={index}>{date.eventName} on July {day}
-          <button onClick={handleDeleteClick}>Delete Event</button></li>
+          <a href={"/events/" + date.id}>View Event</a></li>
       break;
       case 7:
       return <li key={index}>{date.eventName} on August {day}
-          <button onClick={handleDeleteClick}>Delete Event</button></li>
+          <a href={"/events/" + date.id}>View Event</a></li>
       break;
       case 8:
       return <li key={index}>{date.eventName} on September {day}
-          <button onClick={handleDeleteClick}>Delete Event</button></li>
+          <a href={"/events/" + date.id}>View Event</a></li>
       break;
       case 9:
       return <li key={index}>{date.eventName} on October {day}
-          <button onClick={handleDeleteClick}>Delete Event</button></li>
+          <a href={"/events/" + date.id}>View Event</a></li>
       break;
       case 10:
       return <li key={index}>{date.eventName} on November {day}
-          <button onClick={handleDeleteClick}>Delete Event</button></li>
+          <a href={"/events/" + date.id}>View Event</a></li>
       break;
       case 11:
       return <li key={index}>{date.eventName} on December {day}
-          <button onClick={handleDeleteClick}>Delete Event</button></li>
+          <a href={"/events/" + date.id}>View Event</a></li>
       break;
       default:
       return <li key={index}>{date.eventName} on {date.eventDate}
-      <button onClick={handleDeleteClick}>Delete Event</button></li>
+          <a href={"/events/" + date.id}>View Event</a></li>
     }
   })
 

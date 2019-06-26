@@ -38,7 +38,7 @@ class PersonController extends Component {
     }
     handleDelete(id){
       const request = new Request();
-      const url = "/api/persons/" + id;
+      const url = "/api/events/" + id;
       request.delete(url)
       .then(()=> {
         window.location = "/persons";
