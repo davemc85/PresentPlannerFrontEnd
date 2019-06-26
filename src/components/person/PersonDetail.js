@@ -41,7 +41,9 @@ const PersonDeatil = (props) => {
   })
   return (
     <div className="person-detail">
+    <div className="name-text">
     <Person person ={props.person}/>
+    </div>
     <ul className="person-events">
     <li>
     {allDates}

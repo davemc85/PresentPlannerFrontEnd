@@ -66,7 +66,14 @@ b {
   padding-bottom: 20px;
   padding-left: 50px;
   padding-right: 50px;
-  transform: rotate(30);
+  transform: rotate(-15deg);
+}
+
+.name-text {
+  font-family: 'Indie Flower', cursive;
+  font-size: 45px;
+  transform: rotate(-8deg);
+  transform-origin: left top;
 }
 
 .person-detail {
@@ -112,11 +119,10 @@ th {
   text-align: left;
 }
 
-/* fix to align center */
 form {
   display: flex;
-  justify-content: center;
-  flex-direction: column;
-  width: 50vw;
+  padding-left: 25vw;
+  padding-right: 25vw;
   min-width: 200px;
+  flex-direction: column;
 }
