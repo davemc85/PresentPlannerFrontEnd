@@ -22,8 +22,51 @@ const PersonDetail = (props) => {
   }
   
   const allDates = props.person.dates.map((date, index) => {
-    return <li key={index}>{date.eventName} on { date.eventDate}</li>
+    const eventDate = new Date(date.eventDate);
+    const day = eventDate.getDay();
+    const month = eventDate.getMonth();
+    switch(month){
+      case 0:
+      return <li key={index}>{date.eventName} on January {day}</li>
+      break;
+      case 1:
+      return <li key={index}>{date.eventName} on February {day}</li>
+      break;
+      case 2:
+      return <li key={index}>{date.eventName} on March {day}</li>
+      break;
+      case 3:
+      return <li key={index}>{date.eventName} on April {day}</li>
+      break;
+      case 4:
+      return <li key={index}>{date.eventName} on May {day}</li>
+      break;
+      case 5:
+      return <li key={index}>{date.eventName} on June {day}</li>
+      break;
+      case 6:
+      return <li key={index}>{date.eventName} on July {day}</li>
+      break;
+      case 7:
+      return <li key={index}>{date.eventName} on August {day}</li>
+      break;
+      case 8:
+      return <li key={index}>{date.eventName} on September {day}</li>
+      break;
+      case 9:
+      return <li key={index}>{date.eventName} on October {day}</li>
+      break;
+      case 10:
+      return <li key={index}>{date.eventName} on November {day}</li>
+      break;
+      case 11:
+      return <li key={index}>{date.eventName} on December {day}</li>
+      break;
+      default:
+      return <li key={index}>{date.eventName} on {date.eventDate}</li>
+    }
   })
+  
   const allItems = props.person.items.map((item, index) => {
     return (
       <div>
@@ -43,11 +86,11 @@ const PersonDetail = (props) => {
       </div>
     )
   })
-
-
-
+  
+  
+  
   const editUrl = "/persons/edit/" + props.person.id;
-
+  
   return (
     <div className="person-detail">
     <div className="name-text">
