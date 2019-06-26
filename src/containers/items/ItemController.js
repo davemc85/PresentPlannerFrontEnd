@@ -65,7 +65,6 @@ class ItemController extends Component {
     return(
       <Router>
         <React.Fragment>
-          <ItemSideNav />
           <Switch>
             <Route exact path="/items" render={() => <ItemList items={this.state.items}/> }/>
 

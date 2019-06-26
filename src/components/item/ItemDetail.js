@@ -18,9 +18,10 @@ const ItemDetail = (props) => {
 return (
   <div className="item-component">
     <Item item={props.item}/>
-    <p>{props.item.location}</p>
-    <p>{props.item.link}</p>
-    <p>{props.item.additionalDetail}</p>
+    <p>Where: {props.item.location}</p>
+    <p>Website Link? {props.item.link}</p>
+    <p>Additional Detail: {props.item.additionalDetail}</p>
+    <p>Gift idea for: {props.item.person.name}</p>
     <button onClick={handleDeleteClick}>Delete Item</button>
     <Link to={editUrl}><button type="button">Edit Item</button></Link>
   </div>

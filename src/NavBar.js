@@ -4,8 +4,11 @@ import {Link} from 'react-router-dom';
 const NavBar = (props) => {
   return (
     <header>
-      <h1>PRESENT PLANNER REMINDER</h1>
+      <h1>GiftHub</h1>
         <ul>
+        <li className="navLink">
+          <a href="/persons">Home</a>
+        </li>
         <li className="navLink">
           <a href="/persons/new">Add a new person</a>
         </li>

@@ -88,7 +88,7 @@ class ItemFormContainer extends Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-        <label>Name </label>
+        <label>Item </label>
           <input type="text" placeholder="name" name="name" onChange={this.handleName} value={this.state.name}/>
           <label>Description </label>
           <input type="text" placeholder="description" name="description" onChange={this.handleDescription} value={this.state.description}/>
