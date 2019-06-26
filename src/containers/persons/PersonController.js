@@ -5,6 +5,7 @@ import PersonDetail from '../../components/person/PersonDetail';
 import Request from '../../helpers/Request';
 import PersonFormContainer from './PersonFormContainer';
 import PersonEditFormContainer from './PersonEditFormContainer';
+import PersonSideNav from '../../components/person/PersonSideNav';
 
 
 
@@ -66,7 +67,8 @@ class PersonController extends Component {
     return(
       <Router>
         <React.Fragment>
-         <Switch>
+        <Switch>
+
           <Route exact path="/persons" render={() =>
             <PersonList persons ={this.state.persons} events={this.state.events}/> }/>
 
@@ -89,6 +91,7 @@ class PersonController extends Component {
               onDelete={this.handleDelete}/>
 
             }}/>
+
            </Switch>
           </React.Fragment>
           </Router>

@@ -5,7 +5,14 @@ const PersonSideNav = (props) => {
   return (
     <div className="sideNav">
       <ul>
-        <li className="sideNavItem">
-          <a href="/persons"></a>
+        <li className="sideNavPerson">
+           <a href="/items">List Of Items</a>
+          </li>
+          <li>
+            <a href="/items/new">Add Gift Idea</a>
+        </li>
+      </ul>
+    </div>
   )
 }
+export default PersonSideNav;
