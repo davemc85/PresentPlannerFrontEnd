@@ -6,6 +6,7 @@ import PersonSideNav from './PersonSideNav';
 import Event from '../event/Event';
 
 
+
 const PersonDetail = (props) => {
   if(!props.person){
     return <p>Loading PersonDetail Information....</p>
@@ -99,8 +100,10 @@ const PersonDetail = (props) => {
       <td>{getStar(item.starItem)}</td>
       <td><input type="checkbox"/></td>
       </tr>
+
       </div>
     )
+
   })
 
 
@@ -110,7 +113,7 @@ const PersonDetail = (props) => {
   return (
     <div className="person-detail">
     <div className="name-text">
-    <Person person ={props.person}/>
+    <p>{props.person.name}</p>
     </div>
     <ul className="person-events">
     <li>
@@ -121,6 +124,15 @@ const PersonDetail = (props) => {
     <table className="person-items">
     {allItems}
     </table>
+
+    <button onClick={handleDeleteClick}>Delete Person</button>
+    <Link to={editUrl}><button type="button">Edit Person</button></Link>
+    </div>
+  )
+  return(
+    <div>
+
+
     </div>
   )
 }
