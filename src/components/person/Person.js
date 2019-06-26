@@ -10,12 +10,15 @@ const Person = ({person}) => {
   const url = "/persons/" + person.id;
 
     return (
+      <div>
+    
         <React.Fragment>
           
           <Link to={url}>
            {person.name}
           </Link>
         </React.Fragment>
+        </div>
       )
     }
 

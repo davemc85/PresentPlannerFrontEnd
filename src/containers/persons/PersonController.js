@@ -4,7 +4,8 @@ import PersonList from '../../components/person/PersonList';
 import PersonDetail from '../../components/person/PersonDetail';
 import Request from '../../helpers/Request';
 import PersonFormContainer from './PersonFormContainer';
- import Person from '../../components/person/Person';
+import PersonEditFormContainer from './PersonEditFormContainer';
+
 
 
 class PersonController extends Component {
@@ -14,13 +15,13 @@ class PersonController extends Component {
       persons: [],
       events: []
     }
-    
-    this.findPersonById = this.findPersonById.bind(this);
 
+    this.findPersonById = this.findPersonById.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
     this.handlePost = this.handlePost.bind(this);
   }
-  
-  
+
+
   componentDidMount(){
     const request = new Request();
     const personPromise = request.get('/api/persons');
@@ -35,6 +36,14 @@ class PersonController extends Component {
         return person.id === parseInt(id);
       })
     }
+    handleDelete(id){
+      const request = new Request();
+      const url = "/api/persons/" + id;
+      request.delete(url)
+      .then(()=> {
+        window.location = "/persons";
+      });
+    }
 
      handlePost(person){
     const request = new Request();
@@ -43,13 +52,22 @@ class PersonController extends Component {
       window.location = "/persons";
     })
   }
+  handlePersonUpdate(person, id){
+    const request = new Request();
+    request.patch('/api/persons/' + id, person).then(()=> {
+      window.location = '/persons/' + id;
+    })
+  }
+
+
 
 
   render(){
     return(
       <Router>
         <React.Fragment>
-         <Switch>
+        <Switch>
+
           <Route exact path="/persons" render={() =>
             <PersonList persons ={this.state.persons} events={this.state.events}/> }/>
 
@@ -57,17 +75,31 @@ class PersonController extends Component {
               return <PersonFormContainer handlePersonPost = {this.handlePost}/>
                 }}/>
 
-            <Route exact path="/persons/:id"
+            <Route exact path="/persons/edit/:id"
               render={(props) => {
+              const id = props.match.params.id
+              const person = this.findPersonById(id);
+              return <PersonEditFormContainer person={person}
+              handlePersonUpdate={this.handlePersonUpdate}/>
+            }} />
+
+            <Route exact path="/persons/:id" render={(props)=>{
               const id = props.match.params.id;
               const person = this.findPersonById(id);
-              return <PersonDetail person={person} />
-            }} />
+
+              return <PersonDetail person={person} onDelete={this.handleDelete} />
+
+              return <PersonDetail person={person}
+              onDelete={this.handleDelete}/>
+
+
+            }}/>
+
            </Switch>
           </React.Fragment>
           </Router>
         )
       }
-      
+
     }
     export default PersonController;

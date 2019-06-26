@@ -1,12 +1,16 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import Person from './Person';
+import PersonSideNav from './PersonSideNav';
+import Event from '../event/Event';
 
 
-
-const PersonDeatil = (props) => {
+const PersonDetail = (props) => {
   if(!props.person){
-    return <p>Loading PersonDeatil Information....</p>
+    return <p>Loading PersonDetail Information....</p>
+  }
+  const handleDeleteClick = () => {
+    props.onDelete(props.person.id);
   }
   
   const getStar = (star) => {
@@ -39,6 +43,11 @@ const PersonDeatil = (props) => {
       </div>
     )
   })
+
+
+
+  const editUrl = "/persons/edit/" + props.person.id;
+
   return (
     <div className="person-detail">
     <div className="name-text">
@@ -57,4 +66,4 @@ const PersonDeatil = (props) => {
   )
 }
 
-export default PersonDeatil;
+export default PersonDetail;
