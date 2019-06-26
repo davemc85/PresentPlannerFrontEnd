@@ -23,7 +23,7 @@ const PersonDetail = (props) => {
   
   const allDates = props.person.dates.map((date, index) => {
     const eventDate = new Date(date.eventDate);
-    const day = eventDate.getDay();
+    const day = eventDate.getDate();
     const month = eventDate.getMonth();
     switch(month){
       case 0:

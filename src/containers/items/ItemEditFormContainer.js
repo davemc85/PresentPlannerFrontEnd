@@ -9,6 +9,7 @@ class ItemEditFormContainer extends Component {
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleCheckbox = this.handleCheckbox.bind(this);
   }
 
   componentDidMount(){
@@ -17,6 +18,14 @@ class ItemEditFormContainer extends Component {
       .then((data) => {
       this.setState({persons: data._embedded.persons})
     })
+  }
+  
+  handleCheckbox(){
+    if (this.props.item.starItem){
+      this.props.item.starItem = false;
+    } else {
+      this.props.item.starItem = true;
+    }
   }
 
   handleSubmit(event){
@@ -29,7 +38,7 @@ class ItemEditFormContainer extends Component {
       "price": event.target.price.value,
       "link": event.target.link.value,
       "additionalDetail": event.target.additionalDetail.value,
-      "starItem": event.target.starItem.checked,
+      "starItem": this.props.item.starItem,
       "person": event.target.person.value
     }
     this.props.handleItemUpdate(item, this.props.item.id)
@@ -61,7 +70,7 @@ class ItemEditFormContainer extends Component {
           <label>Additional Details: </label>
             <textarea name="additionalDetail" defaultValue={this.props.item.additionalDetail} />
           <label>Star Item </label>
-            <input type="checkbox" name="starItem" checked={this.props.item.starItem}/>
+            <input type="checkbox" name="starItem" defaultChecked={this.props.item.starItem} onChange={this.handleCheckbox()}/>
           <label>Who is it for? </label>
             <select name="person">
               {personOptions}
