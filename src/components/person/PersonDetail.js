@@ -1,7 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import Person from './Person';
-
+import PersonSideNav from './PersonSideNav';
+import Event from '../event/Event';
 
 
 const PersonDetail = (props) => {
@@ -12,27 +13,35 @@ const PersonDetail = (props) => {
     props.onDelete(props.person.id);
   }
 
-  // const allDates = props.person.dates.map((date, index) => {
-  //   return <li key={index}>{date.eventName} { date.eventDate}</li>
-  // })
-  const allItems = props.person.items.map((item, index) => {
-    return <li key={index}>{item.name} Price:£{item.price}</li>
+  const allDates = props.person.dates.map((date, index) => {
+    return <li key={index}>{date.eventName} { date.eventDate}</li>
   })
+  const allItems = props.person.items.map((item, index) => {
+    return <li key={index}> {item.name} Price:£{item.price}</li>
+  })
+
+
 
   const editUrl = "/persons/edit/" + props.person.id;
 
   return (
    <div className="person-component">
+   <PersonSideNav/>
     <Person person ={props.person}/>
-         <ul>
-          <p>Gift Ideas:</p>
-          {allItems}
-        </ul>
+      <p>List Of Gift Ideas for  {props.person.name}</p>
+         <li>
+          {allDates}
+        </li>
+        <li>
+        {allItems}
+        </li>
         <button onClick={handleDeleteClick}>Delete Person</button>
-        <Link to= {editUrl}><button type="button">Edit {props.person.name}</button></Link>
+        <Link to= {editUrl}><button type="button"> Edit Person </button></Link>
         </div>
 
  )
+
+
 }
 
 export default PersonDetail;

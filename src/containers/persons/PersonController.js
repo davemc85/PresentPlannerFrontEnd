@@ -5,10 +5,7 @@ import PersonDetail from '../../components/person/PersonDetail';
 import Request from '../../helpers/Request';
 import PersonFormContainer from './PersonFormContainer';
 import PersonEditFormContainer from './PersonEditFormContainer';
-<<<<<<< HEAD
-=======
 
->>>>>>> 2d42776ffaae1e9d839937b6b0e9b07ded8a5c31
 
 
 class PersonController extends Component {
@@ -69,7 +66,8 @@ class PersonController extends Component {
     return(
       <Router>
         <React.Fragment>
-         <Switch>
+        <Switch>
+
           <Route exact path="/persons" render={() =>
             <PersonList persons ={this.state.persons} events={this.state.events}/> }/>
 
@@ -96,6 +94,7 @@ class PersonController extends Component {
 
 >>>>>>> 2d42776ffaae1e9d839937b6b0e9b07ded8a5c31
             }}/>
+
            </Switch>
           </React.Fragment>
           </Router>

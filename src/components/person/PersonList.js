@@ -8,8 +8,8 @@ const PersonList = (props) => {
       <p>Loading person list....</p>
     )
   }
-  
-  
+
+
   const allPersons = props.persons.map((person) => {
     return (
       <li key={person.id} className="component-person">
@@ -20,8 +20,9 @@ const PersonList = (props) => {
     )
   })
   return(
-    <div>
+    <div name="personlist">
     <CalendarBanner events={props.events} />
+    <h2>List Of Persons</h2>
     <ul className="component-list">
     {allPersons}
     </ul>
