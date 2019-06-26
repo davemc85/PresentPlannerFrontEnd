@@ -1,10 +1,12 @@
-import React from 'react';
+import React, {Components} from 'react';
 import {Link} from 'react-router-dom';
 import Person from './Person';
 import Item from '../item/Item';
 import PersonSideNav from './PersonSideNav';
 import Event from '../event/Event';
 import EventDetail from '../event/EventDetail';
+import logo from '../Starred.png';
+import logo2 from '../noStar.png';
 
 
 const PersonDetail = (props) => {
@@ -15,9 +17,9 @@ const PersonDetail = (props) => {
 
   const getStar = (star) => {
     if (star){
-      return <img src="../../../public/Starred.png"/>
+      return <img src={logo} />
     } else {
-      return <img src="../../../public/noStar.png"/>
+      return <img src={logo2} />
     }
   }
 
@@ -82,25 +84,20 @@ const PersonDetail = (props) => {
 
   const allItems = props.person.items.map((item, index) => {
     return (
-      <div>
+      <table>
       <tr>
-      <th>Item</th>
-      <th>Type</th>
-      <th>Price</th>
-      <th>Starred</th>
-      <th>Bought</th>
+        <td><a href={"/items/" + item.id}>{item.name}</a></td>
+        <td>{item.description}</td>
+        <td>£{item.price}</td>
+        <td>{getStar(item.starItem)}</td>
+        <td><input type="checkbox"/></td>
       </tr>
       <hr/>
-      <tr>
-      <a href={"/items/" + item.id}><td>{item.name}</td></a>
-      <td>{item.description}</td>
-      <td>£{item.price}</td>
-      <td>{getStar(item.starItem)}</td>
-      <td><input type="checkbox"/></td>
-      </tr>
-      </div>
+      </table>
     )
   })
+
+
 
 
 
@@ -115,8 +112,11 @@ const PersonDetail = (props) => {
     {allDates}
     </ul>
     <p className="list-heading">Gift Ideas:</p>
+
     <table className="person-items">
-    {allItems}
+      <tr>
+        {allItems}
+      </tr>
     </table>
     </div>
   )

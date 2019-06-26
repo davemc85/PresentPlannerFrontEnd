@@ -115,6 +115,9 @@ b {
   justify-content: center;
 }
 
+table {
+  display: block;
+}
 
 td {
   width: 12vw;

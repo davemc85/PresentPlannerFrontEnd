@@ -32,17 +32,19 @@ class EventFormContainer extends Component {
   }
 
   handleSubmit(event){
+    console.log("handle submit called", event);
     event.preventDefault();
     const newEvent = {
       eventName: this.state.eventName,
       eventDate: this.state.eventDate,
       person: event.target.person.value
     }
+    console.log("newEvent", newEvent);
     this.props.handleEventPost(newEvent);
   }
 
   render(){
-    if(this.props === 0){
+    if(!this.props){
       return <p>Loading...</p>
     }
 
@@ -56,7 +58,7 @@ class EventFormContainer extends Component {
           <label>Event Type: </label>
             <input type="text" placeholder="Event Type" onChange={this.handleEventName} value={this.state.eventName}/>
           <label>Event Date: </label>
-            <input type="text" placeholder="eg. 25-12-2019"onChange={this.handleEventDate} value={this.state.eventDate}/>
+            <input type="date" placeholder="eg. 25-12-2019"onChange={this.handleEventDate} value={this.state.eventDate}/>
           <label>Who is the event for? </label>
             <select name="person">
               {personOptions}
