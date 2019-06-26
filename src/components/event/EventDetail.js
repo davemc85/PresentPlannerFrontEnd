@@ -11,14 +11,13 @@ const EventDetail = (props) => {
     props.onDelete(props.event.id);
   }
 
-  const editUrl = "/events/edit/" + props.event.id;
 
   return(
     <div className="item-component">
       <Event event={props.event}/>
       <p>{props.eventDate}</p>
       <button onClick={handleDeleteClick}>Delete Event</button>
-      <Link to={editUrl}><button type="button">Edit Event</button></Link>
+
     </div>
   )
 }

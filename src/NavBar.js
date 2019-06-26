@@ -12,6 +12,9 @@ const NavBar = (props) => {
         <li className="navLink">
           <a href="/items/new">Add a new item</a>
         </li>
+        <li className="navLink">
+          <a href="/events/new">Add a new event</a>
+        </li>
       </ul>
     </header>
   )

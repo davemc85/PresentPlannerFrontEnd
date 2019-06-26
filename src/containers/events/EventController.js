@@ -3,7 +3,6 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import EventList from '../../components/event/EventList.js';
 import EventDetail from '../../components/event/EventDetail.js';
 import EventFormContainer from './EventFormContainer.js';
-import EventEditFormContainer from './EventEditFormContainer.js';
 import Request from '../../helpers/Request.js';
 
 class EventController extends Component {
@@ -49,14 +48,6 @@ class EventController extends Component {
     })
   }
 
-  handleEventUpdate(event, id){
-    const request = new Request();
-    request.patch("/api/events" + id, event)
-    .then(()=> {
-      window.location = "/events/" + id;
-    })
-  }
-
   render(){
     return(
       <Router>
@@ -68,12 +59,7 @@ class EventController extends Component {
               return <EventFormContainer handleEventPost = {this.handlePost}/>
             }}/>
 
-            <Route exact path="events/edit/:id" render={(props) => {
-              const id = props.match.params.id
-              const event = this.findEventById(id);
-              return <EventEditFormContainer event={event} handleEventUpdate={this.handleEventUpdate}/>
-            }}/>
-
+        
             <Route exact path="/events/:id"
             render={(props) => {
               const id = props.match.params.id;
