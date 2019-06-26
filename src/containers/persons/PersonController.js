@@ -86,13 +86,13 @@ class PersonController extends Component {
             <Route exact path="/persons/:id" render={(props)=>{
               const id = props.match.params.id;
               const person = this.findPersonById(id);
-<<<<<<< HEAD
+
               return <PersonDetail person={person} onDelete={this.handleDelete} />
-=======
+
               return <PersonDetail person={person}
               onDelete={this.handleDelete}/>
 
->>>>>>> 2d42776ffaae1e9d839937b6b0e9b07ded8a5c31
+
             }}/>
 
            </Switch>
