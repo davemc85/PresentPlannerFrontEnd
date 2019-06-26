@@ -60,7 +60,7 @@ const EventDetail = (props) => {
 
 
   return(
-    <div className="item-component">
+    <div className="event-component">
       <Event event={props.event}/>
       <p>on {getEventDate()}</p>
       <button onClick={handleDeleteClick}>Delete Event</button>

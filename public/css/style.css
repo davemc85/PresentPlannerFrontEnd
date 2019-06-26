@@ -132,3 +132,8 @@ form {
   min-width: 200px;
   flex-direction: column;
 }
+
+.event-component {
+  margin-left: 25vw;
+  margin-right: 25vw;
+}
