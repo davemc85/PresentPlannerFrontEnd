@@ -28,10 +28,13 @@ const PersonDetail = (props) => {
    <div className="person-component">
    <PersonSideNav/>
     <Person person ={props.person}/>
-      <p>List Of Gift Ideas for  {props.person.name}</p>
+      <p>List Of Events for {props.person.name}</p>
+      
          <li>
           {allDates}
         </li>
+
+        <p>List Of Gift Ideas for {props.person.name}</p>
         <li>
         {allItems}
         </li>

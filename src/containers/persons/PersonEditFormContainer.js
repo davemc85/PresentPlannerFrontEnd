@@ -21,17 +21,7 @@ class PersonEditFormContainer extends Component {
 
 
 
-    return (
-      <div>
-      <form onSubmit={this.hanldeSubmit}>Name:
-      <input type="text" name="name" defaultValue={this.props.person.name}/>
 
-      <select  multiple={true} name="items">
-      {itemOptions}
-      </select>
-      <button type="submit">Save</button>
-      </form>
-      </div>
 
   return (
     <div>
