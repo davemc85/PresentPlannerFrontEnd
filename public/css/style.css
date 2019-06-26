@@ -94,10 +94,13 @@ b {
   flex-wrap: wrap;
   justify-content: flex-start;
   font-size: 20px;
+}
+
+.individual-event {
+  margin-left: 5px;
+  margin-right: 5px;
   border: 1px solid black;
-  padding: 10px;
-  margin: 10px;
-  width: 120px;
+  width: 150px;
   text-align: center;
 }
 
@@ -112,6 +115,9 @@ b {
   justify-content: center;
 }
 
+table {
+  display: block;
+}
 
 td {
   width: 12vw;
@@ -131,4 +137,9 @@ form {
   padding-right: 25vw;
   min-width: 200px;
   flex-direction: column;
+}
+
+.event-component {
+  margin-left: 25vw;
+  margin-right: 25vw;
 }

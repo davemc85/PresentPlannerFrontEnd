@@ -1,10 +1,12 @@
-import React from 'react';
+import React, {Components} from 'react';
 import {Link} from 'react-router-dom';
 import Person from './Person';
 import Item from '../item/Item';
 import PersonSideNav from './PersonSideNav';
 import Event from '../event/Event';
 import EventDetail from '../event/EventDetail';
+import logo from '../Starred.png';
+import logo2 from '../noStar.png';
 
 
 
@@ -16,9 +18,9 @@ const PersonDetail = (props) => {
 
   const getStar = (star) => {
     if (star){
-      return <img src="../../../public/Starred.png"/>
+      return <img src={logo} />
     } else {
-      return <img src="../../../public/noStar.png"/>
+      return <img src={logo2} />
     }
   }
 
@@ -28,82 +30,76 @@ const PersonDetail = (props) => {
     const month = eventDate.getMonth();
     switch(month){
       case 0:
-      return <li key={index}>{date.eventName} on January {day}
-            <a href={"/events/" + date.id}>View Event</a></li>
+      return <li className="individual-event" key={index}>{date.eventName} on <p>January {day}</p>
+            <p><a href={"/events/" + date.id}>View Event</a></p></li>
       break;
       case 1:
-      return <li key={index}>{date.eventName} on February {day}
-          <a href={"/events/" + date.id}>View Event</a></li>
+      return <li className="individual-event" key={index}>{date.eventName} on <p>February {day}</p>
+            <p><a href={"/events/" + date.id}>View Event</a></p></li>
       break;
       case 2:
-      return <li key={index}>{date.eventName} on March {day}
-          <a href={"/events/" + date.id}>View Event</a></li>
+      return <li className="individual-event" key={index}>{date.eventName} on <p>March {day}</p>
+          <p><a href={"/events/" + date.id}>View Event</a></p></li>
       break;
       case 3:
-      return <li key={index}>{date.eventName} on April {day}
-          <a href={"/events/" + date.id}>View Event</a></li>
+      return <li className="individual-event" key={index}>{date.eventName} on <p>April {day}</p>
+          <p><a href={"/events/" + date.id}>View Event</a></p></li>
       break;
       case 4:
-      return <li key={index}>{date.eventName} on May {day}
-          <a href={"/events/" + date.id}>View Event</a></li>
+      return <li className="individual-event" key={index}>{date.eventName} on <p>May {day}</p>
+          <p><a href={"/events/" + date.id}>View Event</a></p></li>
       break;
       case 5:
-      return <li key={index}>{date.eventName} on June {day}
-          <a href={"/events/" + date.id}>View Event</a></li>
+      return <li className="individual-event" key={index}>{date.eventName} on <p>June {day}</p>
+          <p><a href={"/events/" + date.id}>View Event</a></p></li>
       break;
       case 6:
-      return <li key={index}>{date.eventName} on July {day}
-          <a href={"/events/" + date.id}>View Event</a></li>
+      return <li className="individual-event" key={index}>{date.eventName} on <p>July {day}</p>
+          <p><a href={"/events/" + date.id}>View Event</a></p></li>
       break;
       case 7:
-      return <li key={index}>{date.eventName} on August {day}
-          <a href={"/events/" + date.id}>View Event</a></li>
+      return <li className="individual-event" key={index}>{date.eventName} on <p>August {day}</p>
+          <p><a href={"/events/" + date.id}>View Event</a></p></li>
       break;
       case 8:
-      return <li key={index}>{date.eventName} on September {day}
-          <a href={"/events/" + date.id}>View Event</a></li>
+      return <li className="individual-event" key={index}>{date.eventName} on <p>September {day}</p>
+          <p><a href={"/events/" + date.id}>View Event</a></p></li>
       break;
       case 9:
-      return <li key={index}>{date.eventName} on October {day}
-          <a href={"/events/" + date.id}>View Event</a></li>
+      return <li className="individual-event" key={index}>{date.eventName} on <p>October {day}</p>
+          <p><a href={"/events/" + date.id}>View Event</a></p></li>
       break;
       case 10:
-      return <li key={index}>{date.eventName} on November {day}
-          <a href={"/events/" + date.id}>View Event</a></li>
+      return <li className="individual-event" key={index}>{date.eventName} on <p>November {day}</p>
+          <p><a href={"/events/" + date.id}>View Event</a></p></li>
       break;
       case 11:
-      return <li key={index}>{date.eventName} on December {day}
-          <a href={"/events/" + date.id}>View Event</a></li>
+      return <li className="individual-event" key={index}>{date.eventName} on <p>December {day}</p>
+          <p><a href={"/events/" + date.id}>View Event</a></p></li>
       break;
       default:
-      return <li key={index}>{date.eventName} on {date.eventDate}
-          <a href={"/events/" + date.id}>View Event</a></li>
+      return <li className="individual-event" key={index}>{date.eventName} on <p>{date.eventDate}</p>
+          <p><a href={"/events/" + date.id}>View Event</a></p></li>
     }
   })
 
   const allItems = props.person.items.map((item, index) => {
     return (
-      <div>
+      <table>
       <tr>
-      <th>Item</th>
-      <th>Type</th>
-      <th>Price</th>
-      <th>Starred</th>
-      <th>Bought</th>
+        <td><a href={"/items/" + item.id}>{item.name}</a></td>
+        <td>{item.description}</td>
+        <td>£{item.price}</td>
+        <td>{getStar(item.starItem)}</td>
+        <td><input type="checkbox"/></td>
       </tr>
       <hr/>
-      <tr>
-      <a href={"/items/" + item.id}><td>{item.name}</td></a>
-      <td>{item.description}</td>
-      <td>£{item.price}</td>
-      <td>{getStar(item.starItem)}</td>
-      <td><input type="checkbox"/></td>
-      </tr>
-
-      </div>
+      </table>
     )
 
   })
+
+
 
 
 
@@ -115,13 +111,14 @@ const PersonDetail = (props) => {
     <p>{props.person.name}</p>
     </div>
     <ul className="person-events">
-    <li>
     {allDates}
-    </li>
     </ul>
     <p className="list-heading">Gift Ideas:</p>
+
     <table className="person-items">
-    {allItems}
+      <tr>
+        {allItems}
+      </tr>
     </table>
 
     <button onClick={handleDeleteClick}>Delete Person</button>
