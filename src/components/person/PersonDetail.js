@@ -12,7 +12,10 @@ const PersonDetail = (props) => {
   if(!props.person){
     return <p>Loading PersonDetail Information....</p>
   }
-
+  const handleDeleteClick = () => {
+    props.onDelete(props.person.id);
+  }
+const editUrl = "/persons/edit/" + props.person.id;
 
   const getStar = (star) => {
     if (star){
@@ -105,10 +108,6 @@ const PersonDetail = (props) => {
 
   })
 
-
-
-  const editUrl = "/persons/edit/" + props.person.id;
-
   return (
     <div className="person-detail">
     <div className="name-text">
@@ -128,12 +127,7 @@ const PersonDetail = (props) => {
     <Link to={editUrl}><button type="button">Edit Person</button></Link>
     </div>
   )
-  return(
-    <div>
 
-
-    </div>
-  )
 }
 
 export default PersonDetail;
