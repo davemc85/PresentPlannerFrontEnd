@@ -31,24 +31,24 @@ const CalendarBanner = (props) => {
   
   if (!opened){
     return(
-      <div>
+      <div className="banner">
       <ul>
       <li>
       <Event event={props.events[0]} />
       </li>
       </ul>
-      <button onClick={() => {changeOpened()}}>Expand</button>
+      <button onClick={() => {changeOpened()}} className="calendar-button">Expand</button>
       </div>
     )
   }
   
   if (opened){
     return(
-      <div>
+      <div className="banner">
       <ul>
       {eventsList}
       </ul>
-      <button onClick={() => {changeOpened()}}>Collapse</button>
+      <button onClick={() => {changeOpened()}} className="calendar-button">Collapse</button>
       </div>
     )
   }

@@ -13,11 +13,35 @@ const PersonDetail = (props) => {
     props.onDelete(props.person.id);
   }
 
+  const getStar = (star) => {
+    if (star){
+      return <img src="../../public/Starred.png"/>
+    } else {
+      return <img src="../../public/noStar.png"/>
+    }
+  }
+
   const allDates = props.person.dates.map((date, index) => {
-    return <li key={index}>{date.eventName} { date.eventDate}</li>
+    return <li key={index}>{date.eventName} on { date.eventDate}</li>
   })
   const allItems = props.person.items.map((item, index) => {
-    return <li key={index}> {item.name} Price:£{item.price}</li>
+    return (
+      <div>
+      <tr>
+      <th>Item</th>
+      <th>Price</th>
+      <th>Starred</th>
+      <th>Bought</th>
+      </tr>
+      <hr/>
+      <tr>
+      <td>{item.name}</td>
+      <td>{item.price}</td>
+      <td>{getStar(item.starItem)}</td>
+      <td><input type="checkbox"/></td>
+      </tr>
+      </div>
+    )
   })
 
 
@@ -25,26 +49,21 @@ const PersonDetail = (props) => {
   const editUrl = "/persons/edit/" + props.person.id;
 
   return (
-   <div className="person-component">
-   <PersonSideNav/>
+    <div className="person-detail">
+    <div className="name-text">
     <Person person ={props.person}/>
-      <p>List Of Events for {props.person.name}</p>
-      
-         <li>
-          {allDates}
-        </li>
-
-        <p>List Of Gift Ideas for {props.person.name}</p>
-        <li>
-        {allItems}
-        </li>
-        <button onClick={handleDeleteClick}>Delete Person</button>
-        <Link to= {editUrl}><button type="button"> Edit Person </button></Link>
-        </div>
-
- )
-
-
+    </div>
+    <ul className="person-events">
+    <li>
+    {allDates}
+    </li>
+    </ul>
+    <p className="list-heading">Gift Ideas:</p>
+    <table className="person-items">
+    {allItems}
+    </table>
+    </div>
+  )
 }
 
 export default PersonDetail;

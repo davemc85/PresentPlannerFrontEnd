@@ -18,11 +18,6 @@ class PersonEditFormContainer extends Component {
   }
   render(){
 
-
-
-
-
-
   return (
     <div>
     <form onSubmit={this.handleSubmit}>
@@ -30,7 +25,6 @@ class PersonEditFormContainer extends Component {
      <button type="submit">Save changes</button>
      </form>
     </div>
-
     )
   }
 }
