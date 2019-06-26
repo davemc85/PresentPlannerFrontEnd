@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import Person from './Person';
+import Item from '../item/Item';
 import PersonSideNav from './PersonSideNav';
 import Event from '../event/Event';
 
@@ -12,7 +13,7 @@ const PersonDetail = (props) => {
   const handleDeleteClick = () => {
     props.onDelete(props.person.id);
   }
-  
+
   const getStar = (star) => {
     if (star){
       return <img src="../../public/Starred.png"/>
@@ -20,7 +21,7 @@ const PersonDetail = (props) => {
       return <img src="../../public/noStar.png"/>
     }
   }
-  
+
   const allDates = props.person.dates.map((date, index) => {
     const eventDate = new Date(date.eventDate);
     const day = eventDate.getDate();
@@ -66,31 +67,33 @@ const PersonDetail = (props) => {
       return <li key={index}>{date.eventName} on {date.eventDate}</li>
     }
   })
-  
+
   const allItems = props.person.items.map((item, index) => {
     return (
       <div>
       <tr>
       <th>Item</th>
+      <th>Type</th>
       <th>Price</th>
       <th>Starred</th>
       <th>Bought</th>
       </tr>
       <hr/>
       <tr>
-      <td>{item.name}</td>
-      <td>{item.price}</td>
+      <Link to={"/items/" + item.id}><td>{item.name}</td></Link>
+      <td>{item.description}</td>
+      <td>£{item.price}</td>
       <td>{getStar(item.starItem)}</td>
       <td><input type="checkbox"/></td>
       </tr>
       </div>
     )
   })
-  
-  
-  
+
+
+
   const editUrl = "/persons/edit/" + props.person.id;
-  
+
   return (
     <div className="person-detail">
     <div className="name-text">
