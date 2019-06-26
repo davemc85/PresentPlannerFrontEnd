@@ -80,7 +80,7 @@ const PersonDetail = (props) => {
       </tr>
       <hr/>
       <tr>
-      <Link to={"/items/" + item.id}><td>{item.name}</td></Link>
+      <a href={"/items/" + item.id}><td>{item.name}</td></a>
       <td>{item.description}</td>
       <td>£{item.price}</td>
       <td>{getStar(item.starItem)}</td>
