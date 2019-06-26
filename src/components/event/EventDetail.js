@@ -14,8 +14,10 @@ const EventDetail = (props) => {
 
   return(
     <div className="item-component">
-      <Event event={props.event}/>
-      <p>{props.eventDate}</p>
+
+      <p>{props.event.eventDate}</p>
+      <p>{props.event.person.name}'s {props.event.eventName}</p>
+
       <button onClick={handleDeleteClick}>Delete Event</button>
 
     </div>

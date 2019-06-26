@@ -1,9 +1,11 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import logo from './components/logo1.png';
 
 const NavBar = (props) => {
   return (
     <header>
+    <img src={logo} height="125" width="215"/>
       <h1>GiftHub</h1>
         <ul>
         <li className="navLink">
