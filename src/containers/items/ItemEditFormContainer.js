@@ -35,6 +35,7 @@ class ItemEditFormContainer extends Component {
     this.props.handleItemUpdate(item, this.props.item.id)
     }
 
+
     render(){
       if(this.state.persons.length === 0 || !this.props.item){
         return null
@@ -60,7 +61,7 @@ class ItemEditFormContainer extends Component {
           <label>Additional Details: </label>
             <textarea name="additionalDetail" defaultValue={this.props.item.additionalDetail} />
           <label>Star Item </label>
-            <input type="checkbox" name="starItem" />
+            <input type="checkbox" name="starItem" checked={this.props.item.starItem}/>
           <label>Who is it for? </label>
             <select name="person">
               {personOptions}
