@@ -24,11 +24,11 @@ class PersonController extends Component {
 
   componentDidMount(){
     const request = new Request();
-    const personPromise = request.get('/api/persons');
+    const personPromise = request.get('/api/persons/persons-order');
     const eventPromise = request.get('/api/events/ordered-events');
     Promise.all([personPromise, eventPromise])
     .then((data) => {
-      this.setState({persons: data[0]._embedded.persons, events: data[1]});
+      this.setState({persons: data[0], events: data[1]});
       })
     }
     findPersonById(id){
