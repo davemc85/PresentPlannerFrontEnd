@@ -58,7 +58,7 @@ class EventFormContainer extends Component {
           <label>Event Type: </label>
             <input type="text" placeholder="Event Type" onChange={this.handleEventName} value={this.state.eventName}/>
           <label>Event Date: </label>
-            <input type="date" placeholder="eg. 25-12-2019"onChange={this.handleEventDate} value={this.state.eventDate}/>
+            <input type="text" placeholder="eg. 25-12-2019"onChange={this.handleEventDate} value={this.state.eventDate}/>
           <label>Who is the event for? </label>
             <select name="person">
               {personOptions}
