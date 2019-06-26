@@ -22,7 +22,7 @@ const PersonList = (props) => {
   return(
     <div name="personlist">
     <CalendarBanner events={props.events} />
-    <h2>List Of Persons</h2>
+    <h2>My Gift Recipients:</h2>
     <ul className="component-list">
     {allPersons}
     </ul>
