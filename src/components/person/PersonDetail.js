@@ -27,56 +27,56 @@ const PersonDetail = (props) => {
     const month = eventDate.getMonth();
     switch(month){
       case 0:
-      return <li key={index}>{date.eventName} on January {day}
-            <a href={"/events/" + date.id}>View Event</a></li>
+      return <li className="individual-event" key={index}>{date.eventName} on <p>January {day}</p>
+            <p><a href={"/events/" + date.id}>View Event</a></p></li>
       break;
       case 1:
-      return <li key={index}>{date.eventName} on February {day}
-          <a href={"/events/" + date.id}>View Event</a></li>
+      return <li className="individual-event" key={index}>{date.eventName} on <p>February {day}</p>
+            <p><a href={"/events/" + date.id}>View Event</a></p></li>
       break;
       case 2:
-      return <li key={index}>{date.eventName} on March {day}
-          <a href={"/events/" + date.id}>View Event</a></li>
+      return <li className="individual-event" key={index}>{date.eventName} on <p>March {day}</p>
+          <p><a href={"/events/" + date.id}>View Event</a></p></li>
       break;
       case 3:
-      return <li key={index}>{date.eventName} on April {day}
-          <a href={"/events/" + date.id}>View Event</a></li>
+      return <li className="individual-event" key={index}>{date.eventName} on <p>April {day}</p>
+          <p><a href={"/events/" + date.id}>View Event</a></p></li>
       break;
       case 4:
-      return <li key={index}>{date.eventName} on May {day}
-          <a href={"/events/" + date.id}>View Event</a></li>
+      return <li className="individual-event" key={index}>{date.eventName} on <p>May {day}</p>
+          <p><a href={"/events/" + date.id}>View Event</a></p></li>
       break;
       case 5:
-      return <li key={index}>{date.eventName} on June {day}
-          <a href={"/events/" + date.id}>View Event</a></li>
+      return <li className="individual-event" key={index}>{date.eventName} on <p>June {day}</p>
+          <p><a href={"/events/" + date.id}>View Event</a></p></li>
       break;
       case 6:
-      return <li key={index}>{date.eventName} on July {day}
-          <a href={"/events/" + date.id}>View Event</a></li>
+      return <li className="individual-event" key={index}>{date.eventName} on <p>July {day}</p>
+          <p><a href={"/events/" + date.id}>View Event</a></p></li>
       break;
       case 7:
-      return <li key={index}>{date.eventName} on August {day}
-          <a href={"/events/" + date.id}>View Event</a></li>
+      return <li className="individual-event" key={index}>{date.eventName} on <p>August {day}</p>
+          <p><a href={"/events/" + date.id}>View Event</a></p></li>
       break;
       case 8:
-      return <li key={index}>{date.eventName} on September {day}
-          <a href={"/events/" + date.id}>View Event</a></li>
+      return <li className="individual-event" key={index}>{date.eventName} on <p>September {day}</p>
+          <p><a href={"/events/" + date.id}>View Event</a></p></li>
       break;
       case 9:
-      return <li key={index}>{date.eventName} on October {day}
-          <a href={"/events/" + date.id}>View Event</a></li>
+      return <li className="individual-event" key={index}>{date.eventName} on <p>October {day}</p>
+          <p><a href={"/events/" + date.id}>View Event</a></p></li>
       break;
       case 10:
-      return <li key={index}>{date.eventName} on November {day}
-          <a href={"/events/" + date.id}>View Event</a></li>
+      return <li className="individual-event" key={index}>{date.eventName} on <p>November {day}</p>
+          <p><a href={"/events/" + date.id}>View Event</a></p></li>
       break;
       case 11:
-      return <li key={index}>{date.eventName} on December {day}
-          <a href={"/events/" + date.id}>View Event</a></li>
+      return <li className="individual-event" key={index}>{date.eventName} on <p>December {day}</p>
+          <p><a href={"/events/" + date.id}>View Event</a></p></li>
       break;
       default:
-      return <li key={index}>{date.eventName} on {date.eventDate}
-          <a href={"/events/" + date.id}>View Event</a></li>
+      return <li className="individual-event" key={index}>{date.eventName} on <p>{date.eventDate}</p>
+          <p><a href={"/events/" + date.id}>View Event</a></p></li>
     }
   })
 
@@ -112,9 +112,7 @@ const PersonDetail = (props) => {
     <Person person ={props.person}/>
     </div>
     <ul className="person-events">
-    <li>
     {allDates}
-    </li>
     </ul>
     <p className="list-heading">Gift Ideas:</p>
     <table className="person-items">
