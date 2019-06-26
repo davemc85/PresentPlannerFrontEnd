@@ -41,7 +41,7 @@ class ItemController extends Component {
     const url = "/api/items/" + id;
     request.delete(url)
     .then(()=> {
-      window.location = "/items";
+      window.location = "/persons";
     });
   }
 
@@ -49,7 +49,7 @@ class ItemController extends Component {
     const request = new Request();
     request.post("/api/items/", item)
     .then(()=> {
-      window.location = "/items";
+      window.location = "/persons";
     })
   }
 
@@ -65,7 +65,6 @@ class ItemController extends Component {
     return(
       <Router>
         <React.Fragment>
-          <ItemSideNav />
           <Switch>
             <Route exact path="/items" render={() => <ItemList items={this.state.items}/> }/>
 

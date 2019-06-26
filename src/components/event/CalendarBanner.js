@@ -21,7 +21,7 @@ const CalendarBanner = (props) => {
     }
   }
   
-  const eventsList = props.events.slice(0, 6).map((event) => {
+  const eventsList = props.events.slice(0, 5).map((event) => {
     return (
       <li key={event.id}>
       <Event event={event} />

@@ -33,10 +33,10 @@ class EventController extends Component {
 
   handleDelete(id){
     const request = new Request();
-    const url = "/api/events" + id;
+    const url = "/api/events/" + id;
     request.delete(url)
     .then(()=> {
-      window.location = "/events";
+      window.location = "/persons";
     });
   }
 
@@ -44,7 +44,7 @@ class EventController extends Component {
     const request = new Request();
     request.post("/api/events", event)
     .then(()=> {
-      window.location = "/events";
+      window.location = "/persons";
     })
   }
 
@@ -59,7 +59,7 @@ class EventController extends Component {
               return <EventFormContainer handleEventPost = {this.handlePost}/>
             }}/>
 
-        
+
             <Route exact path="/events/:id"
             render={(props) => {
               const id = props.match.params.id;
