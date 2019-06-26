@@ -18,21 +18,6 @@ class PersonEditFormContainer extends Component {
   }
   render(){
 
-
-
-<<<<<<< HEAD
-    return (
-      <div>
-      <form onSubmit={this.hanldeSubmit}>Name:
-      <input type="text" name="name" defaultValue={this.props.person.name}/>
-
-      <select  multiple={true} name="items">
-      {itemOptions}
-      </select>
-      <button type="submit">Save</button>
-      </form>
-      </div>
-=======
   return (
     <div>
     <form onSubmit={this.handleSubmit}>
@@ -40,7 +25,6 @@ class PersonEditFormContainer extends Component {
      <button type="submit">Save changes</button>
      </form>
     </div>
->>>>>>> 2d42776ffaae1e9d839937b6b0e9b07ded8a5c31
     )
   }
 }
