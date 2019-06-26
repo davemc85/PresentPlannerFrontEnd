@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 
 const Event = ({event}) => {
 
@@ -10,13 +9,9 @@ const Event = ({event}) => {
   const url = "/events/" + event.id;
 
   return (
-    <React.Fragment>
-      <Link to={url} className="event_name">
-        {event.eventName}
-      </Link>
-        <p>{event.person.name}</p>
-        <p>{event.eventDate}</p>
-    </React.Fragment>
+    <div>
+      <p> It is {event.person.name}'s {event.eventName} in <b>{event.days}</b> days</p>
+    </div>
   )
 
 }
