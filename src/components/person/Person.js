@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 
 const Person = ({person}) => {
@@ -11,9 +11,9 @@ const Person = ({person}) => {
 
     return (
       <div>
-    
+
         <React.Fragment>
-          
+
           <Link to={url}>
            {person.name}
           </Link>
