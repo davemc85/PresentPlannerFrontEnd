@@ -14,10 +14,7 @@ const PersonDetail = (props) => {
   if(!props.person){
     return <p>Loading PersonDetail Information....</p>
   }
-  const handleDeleteClick = () => {
-    props.onDelete(props.person.id);
-  }
-const editUrl = "/persons/edit/" + props.person.id;
+
 
   const getStar = (star) => {
     if (star){
