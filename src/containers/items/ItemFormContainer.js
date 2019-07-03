@@ -58,7 +58,7 @@ class ItemFormContainer extends Component {
   }
 
   handleStarItem(event){
-    this.setState({starItem: event.target.value})
+    this.setState({starItem: event.target.checked})
   }
 
   handleSubmit(event){

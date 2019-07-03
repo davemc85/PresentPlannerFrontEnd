@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Person from './Person';
 import CalendarBanner from '../event/CalendarBanner';
 
