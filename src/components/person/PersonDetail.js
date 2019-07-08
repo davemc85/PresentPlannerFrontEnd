@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
 import Person from './Person';
 import Item from '../item/Item';
-import PersonSideNav from './PersonSideNav';
+import ItemSideNav from '../item/ItemSideNav';
 import Event from '../event/Event';
 import EventDetail from '../event/EventDetail';
 import logo from '../Starred.png';
@@ -12,6 +12,10 @@ import logo2 from '../noStar.png';
 const PersonDetail = (props) => {
   if(!props.person){
     return <p>Loading PersonDetail Information....</p>
+  }
+
+  const handlePersonDeleteClick = () => {
+    props.onDelete(props.person.id);
   }
 
 
@@ -89,8 +93,8 @@ const PersonDetail = (props) => {
         <td><a href={"/items/" + item.id}>{item.name}</a></td>
         <td>{item.description}</td>
         <td>£{item.price}</td>
+        <td>{item.location}</td>
         <td>{getStar(item.starItem)}</td>
-        <td><input type="checkbox"/></td>
       </tr>
       <hr/>
       </table>
@@ -118,6 +122,8 @@ const PersonDetail = (props) => {
         {allItems}
       </tr>
     </table>
+    <button onClick={handlePersonDeleteClick}>Delete Person</button>
+    <ItemSideNav/>
     </div>
   )
 }

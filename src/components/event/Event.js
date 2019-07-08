@@ -7,7 +7,7 @@ const Event = ({event}) => {
   }
 
   const url = "/events/" + event.id;
-  
+
   const getDays = () => {
     if (!event.days){
       let today = new Date();
@@ -35,7 +35,7 @@ const Event = ({event}) => {
 
   return (
     <div>
-      <p> It is {event.person.name}'s {event.eventName} in <b>{getDays()}</b> days</p>
+      <h4> It is {event.person.name}'s {event.eventName} in <b>{getDays()}</b> days</h4>
     </div>
   )
 

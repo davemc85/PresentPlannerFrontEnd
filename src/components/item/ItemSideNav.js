@@ -8,9 +8,6 @@ const ItemSideNav = (props) => {
         <li className="sideNavItem">
           <a href="/persons">Return to People</a>
         </li>
-        <li>
-          <a href="/items/new">Add a new gift idea</a>
-        </li>
       </ul>
     </div>
   )

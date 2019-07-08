@@ -4,6 +4,7 @@ import EventList from '../../components/event/EventList.js';
 import EventDetail from '../../components/event/EventDetail.js';
 import EventFormContainer from './EventFormContainer.js';
 import Request from '../../helpers/Request.js';
+import ItemSideNav from '../../components/item/ItemSideNav'
 
 class EventController extends Component {
   constructor(props){
@@ -67,6 +68,7 @@ class EventController extends Component {
               return <EventDetail event={event} onDelete={this.handleDelete}/>
             }}/>
           </Switch>
+          <ItemSideNav/>
         </React.Fragment>
       </Router>
     )

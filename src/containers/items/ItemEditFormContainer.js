@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Request from '../../helpers/Request';
-
+import Select from 'react-select'
 class ItemEditFormContainer extends Component {
   constructor(props){
     super(props);
@@ -19,7 +19,7 @@ class ItemEditFormContainer extends Component {
       this.setState({persons: data._embedded.persons})
     })
   }
-  
+
   handleCheckbox(){
     if (this.props.item.starItem){
       this.props.item.starItem = false;

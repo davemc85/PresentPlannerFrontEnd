@@ -11,12 +11,14 @@ const ItemDetail = (props) => {
     props.onDelete(props.item.id);
   }
 
+  
+
 
 
   const editUrl = "/items/edit/" + props.item.id;
 
 return (
-  <div className="item-component">
+  <div className="item-detail">
     <Item item={props.item}/>
     <p>Where: {props.item.location}</p>
     <p>Website Link? {props.item.link}</p>

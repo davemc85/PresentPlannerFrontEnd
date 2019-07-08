@@ -18,6 +18,7 @@ class ItemController extends Component {
     this.findItemById = this.findItemById.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handlePost = this.handlePost.bind(this);
+    this.goBack = this.goBack.bind(this);
   }
 
   componentDidMount(){
@@ -44,6 +45,10 @@ class ItemController extends Component {
       window.location = "/persons";
     });
   }
+
+  goBack(){
+    this.props.history.goBack();
+}
 
   handlePost(item){
     const request = new Request();
@@ -83,7 +88,9 @@ class ItemController extends Component {
               const item = this.findItemById(id);
               return <ItemDetail item={item} onDelete={this.handleDelete}/>
             }} />
+
           </Switch>
+          <ItemSideNav/>
         </React.Fragment>
       </Router>
     )

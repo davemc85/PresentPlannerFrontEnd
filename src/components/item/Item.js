@@ -14,7 +14,7 @@ const Item = ({item}) => {
       <Link to={url} className="item_name">
         {item.name} {item.description}
       </Link>
-      <p>£{item.price}</p>
+      <p>Price: £{item.price}</p>
     </React.Fragment>
   )
 }

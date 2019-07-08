@@ -1,11 +1,14 @@
 .main-container {
-  min-height: 100vh;
+  min-height: 150vh;
   min-width: 100vw;
-  background-color:#EEF0F2;
+  background-color:deepskyblue;
 }
 
 li {
   list-style: none;
+  color: white;
+  padding-left: 40px;
+  padding-right: 40px;
 }
 
 header {
@@ -16,12 +19,23 @@ header {
   margin-right: 20px;
   margin-bottom: 0;
   margin-top: 0;
+  height: 150px;
 }
 
 h1 {
-  /* justify-content: center; */
+  justify-content: center;
   font-family: 'Indie Flower', cursive;
-  font-size: 60px;
+  font-size: 80px;
+  color: white;
+  text-shadow: 1px 1px 1px white,
+               3px 3px 3px darkblue;
+}
+
+
+h4 {
+  font-family: 'Indie Flower', cursive;
+  font-size: 25px;
+  color: white;
 }
 
 h2 {
@@ -30,11 +44,12 @@ h2 {
   margin-left: 10px;
   margin-bottom: 20px;
   transform: rotate(-3deg);
+  color: white;
 }
 
 .banner {
-  display: flex;
-  border: 1px solid black;
+  /* display: flex; */
+  border: 1px solid white;
   margin-left: 25vw;
   margin-right: 25vw;
   width: 50vw;
@@ -42,11 +57,13 @@ h2 {
   align-items: center;
   font-size: 20px;
   text-align: center;
+  color: white;
 }
 
 b {
   font-family: 'Indie Flower', cursive;
   font-size: 30px;
+  color: white;
 }
 
 .banner .calendar-button {
@@ -64,7 +81,7 @@ b {
   display: flex;
   background-image: url("../giftTag.png");
   background-size: cover;
-  color: black;
+  color: white;
   font-family: 'Indie Flower', cursive;
   font-size: 20px;
   padding-top: 20px;
@@ -77,12 +94,18 @@ b {
 
 .name-text {
   font-family: 'Indie Flower', cursive;
-  font-size: 45px;
-  transform: rotate(-8deg);
+  font-size: 50px;
+  /* transform: rotate(-8deg); */
   transform-origin: left top;
+  color: white;
 }
 
 .person-detail {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.item-detail {
   padding-left: 50px;
   padding-right: 50px;
 }
@@ -99,7 +122,7 @@ b {
 .individual-event {
   margin-left: 5px;
   margin-right: 5px;
-  border: 1px solid black;
+  border: 1px solid white;
   width: 150px;
   text-align: center;
 }
@@ -123,12 +146,14 @@ td {
   width: 12vw;
   min-width: 70px;
   text-align: left;
+  color: white;
 }
 
 th {
   width: 12vw;
   min-width: 70px;
   text-align: left;
+  color: white;
 }
 
 form {
@@ -142,4 +167,105 @@ form {
 .event-component {
   margin-left: 25vw;
   margin-right: 25vw;
+}
+a{
+  color: white;
+  text-decoration: none;
+  text-shadow: 0px 0px 0px white,
+               2px 2px 2px darkblue;
+}
+p {
+  color: white;
+}
+
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid deeppink;
+  border-radius: 4px;
+  font-size: 12pt;
+}
+
+input[type=number]{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid deeppink;
+  border-radius: 4px;
+  font-size: 12pt;
+}
+
+input[type=textarea]{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid deeppink;
+  border-radius: 4px;
+  font-size: 12pt;
+}
+
+.person-option{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid deeppink;
+  border-radius: 4px;
+  font-size: 12pt;
+}
+
+.button {
+  background: deeppink;
+  color: white;
+  border: 1px solid #eee;
+  border-radius: 20px;
+  box-shadow: 1px 1px 1px #eee;
+  text-shadow:none;
+  font-size: 12pt;
+}
+
+input[type=submit]:hover {
+  background: white;
+  color: deeppink;
+  border: 1px solid #eee;
+  border-radius: 20px;
+  box-shadow: 1px 1px 1px #eee;
+  text-shadow:none;
+  font-size: 12pt;
+}
+
+input[type='checkbox']:after {
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: #d1d3d1;
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+}
+
+input[type='checkbox']:checked:after {
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: deeppink;
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+}
+ul {
+  text-decoration: none;
+  padding-inline-start: 0;
 }

@@ -5,6 +5,7 @@ import PersonDetail from '../../components/person/PersonDetail';
 import Request from '../../helpers/Request';
 import PersonFormContainer from './PersonFormContainer';
 import PersonEditFormContainer from './PersonEditFormContainer';
+import ItemSideNav from '../../components/item/ItemSideNav'
 
 
 
@@ -18,6 +19,7 @@ class PersonController extends Component {
 
     this.findPersonById = this.findPersonById.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.handlePersonDelete = this.handlePersonDelete.bind(this);
     this.handlePost = this.handlePost.bind(this);
   }
 
@@ -39,6 +41,15 @@ class PersonController extends Component {
     handleDelete(id){
       const request = new Request();
       const url = "/api/events/" + id;
+      request.delete(url)
+      .then(()=> {
+        window.location = "/persons";
+      });
+    }
+
+    handlePersonDelete(id){
+      const request = new Request();
+      const url = "/api/persons/" + id;
       request.delete(url)
       .then(()=> {
         window.location = "/persons";
@@ -87,10 +98,8 @@ class PersonController extends Component {
               const id = props.match.params.id;
               const person = this.findPersonById(id);
 
-              return <PersonDetail person={person} onDelete={this.handleDelete} />
+              return <PersonDetail person={person} onDelete={this.handlePersonDelete} />
 
-              return <PersonDetail person={person}
-              onDelete={this.handleDelete}/>
 
 
             }}/>

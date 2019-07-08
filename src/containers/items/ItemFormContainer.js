@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Request from '../../helpers/Request';
-
+import Select from 'react-select'
 class ItemFormContainer extends Component {
 
   constructor(props){
